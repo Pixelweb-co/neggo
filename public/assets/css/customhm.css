@@ -1,0 +1,36 @@
+.table-wrapper {
+    margin-top: 50px;
+}
+
+.player-img {
+    width: 40px;
+    height: 40px;
+}
+
+.add-player-form {
+    margin-top: 50px;
+}
+
+/** login page **/
+.border-md {
+    border-width: 2px;
+}
+.btn-facebook {
+    background: #405D9D;
+    border: none;
+}
+.btn-facebook:hover, .btn-facebook:focus {
+    background: #314879;
+}
+.btn-twitter {
+    background: #42AEEC;
+    border: none;
+}
+.btn-twitter:hover, .btn-twitter:focus {
+    background: #1799e4;
+}
+/** end login page **/
+/**
+div {
+  border: 1px solid #000000;
+}**/
