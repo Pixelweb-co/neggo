@@ -42,7 +42,8 @@ if(Object.entries(props.getStore).length > 0){
     
     costo_por_sesion: '', 
     permitir_llamada_paciente : 'SI',
-    tiene_empresa: 'SI'
+    tiene_empresa: 'SI',
+    disponibilidad:[]
     
   }
 
@@ -64,7 +65,7 @@ const is_selected = (field, valor_campo)=>{
     }
 
   });
-
+  
   if(result){ return true }else{return false}
 
   }else{
@@ -92,6 +93,10 @@ console.log("step data ", step_data)
   }
 
   const onSubmit = (data) => {
+    
+
+    data = {...data, lista_disponibilidad:lista_disponibilidad}
+
     console.clear()
     console.log('step2', data)
     step_data = data
@@ -442,30 +447,50 @@ axios.defaults.baseURL = 'http://localhost:5000'
                 </div>
                  
                 </div>  
-                
-                <div className="ui focus mt-15">
-                <div className="ui left icon form-group swdh95">
+
+  <div class="row">
+    <div class="col">
+  
+    <div className="ui focus mt-15">
+         <div className="ui left icon form-group swdh95">
+        
+           <input
+             className=" form-control"
+             type="text"
+             name="costo_por_sesion"
+             defaultValue={step_data.costo_por_sesion}
+             
+             placeholder="Costo por Sesion"
+             {...register('costo_por_sesion',{
+               required: "Required",
               
-                  <input
-                    className=" form-control"
-                    type="text"
-                    name="costo_por_sesion"
-                    defaultValue={step_data.costo_por_sesion}
-                    
-                    placeholder="Costo por Sesion"
-                    {...register('costo_por_sesion',{
-                      required: "Required",
-                     
-                    })}
-                  />
-                 
-                </div>
-                <div >
-                {errors.primer_nombre && <span className="error-message">Este campo es requerido</span>}
-                </div>
+             })}
+           />
+           
+         </div>
+        <div >
+          {errors.primer_nombre && <span className="error-message">Este campo es requerido</span>}
+        </div>
+    </div> 
 
-              </div> 
+     </div>
 
+    <div className="col">
+  
+       <select placeholder="Tiempo de consulta" defaultValue={step_data.tiempo_consulta}  className="form-control" name="tiempo_consulta"  {...register('tiempo_consulta',{
+             required: "Required"                     
+           })}>
+             <option value="0">Tiempo de consulta</option>
+             <option value="10">10 Minutos</option>
+             <option value="20">20 Minutos</option>
+             <option value="30">30 Minutos</option>
+             <option value="40">40 Minutos</option>
+             <option value="50">50 Minutos</option>
+             <option value="60">60 Minutos</option>
+     </select>
+  
+    </div>
+  </div>
 
               </div> 
 

@@ -1,6 +1,6 @@
 import React, { useState,useRef } from 'react'
 import Step1 from './Step1';
-import Step2 from './Step2';
+// import Step2 from './Step2';
 import Step3 from './Step3'
 import Step4 from './Step4'
 import StepLayout from './StepLayout'
@@ -18,7 +18,7 @@ function WizardForm(props) {
 
     let step = useSelector((store) => store.step)   
     const step1_form =  useSelector((store) => store.step1_form) 
-    const step2_form =  useSelector((store) => store.step2_form) 
+    // const step2_form =  useSelector((store) => store.step2_form) 
 
    
 
@@ -95,7 +95,7 @@ await axios
         <StepLayout actualStep={step}> 
         
         {step===1 ? <Step1 edit={false} updateWizard={update_wizard} getStore={step1_form} /> : <span></span>}
-        {step===2 ? <Step2 edit={false} updateWizard={update_wizard} getStore={step2_form} /> : <span></span>}
+        {/* {step===2 ? <Step2 edit={false} updateWizard={update_wizard} getStore={step2_form} /> : <span></span>} */}
         {step===3 ? <Step3 edit={false} updateWizard={update_wizard}   /> : <span></span>}
         {step===4 ? <Step4 updateWizard={update_wizard} /> : <span></span>}
         </StepLayout>

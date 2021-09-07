@@ -1,10 +1,10 @@
-import DashboardMedical from '../components/layout/adminLayout'
+import Dashboard from '../components/layout/adminLayout'
 export default function DashboardPage(props) {
     return (
 
-        <DashboardMedical >
-            
-        </DashboardMedical>
+        <Dashboard >
+            <h1>Bienvenidos!!</h1>
+        </Dashboard>
 
     )
 }

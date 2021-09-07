@@ -460,6 +460,7 @@ pre {
 
 .container-fluid {
   width: 100%;
+  background-color: #004B72;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -4371,6 +4372,7 @@ input[type="button"].btn-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: #004B72;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -4391,6 +4393,7 @@ input[type="button"].btn-block {
     background-color: #e9ecef; }
 
 .list-group-item {
+  background-color: #004B72 !important;
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
@@ -4398,6 +4401,7 @@ input[type="button"].btn-block {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125); }
   .list-group-item:first-child {
+    background-color:#004B72;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem; }
   .list-group-item:last-child {
@@ -7996,7 +8000,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #2f89fc; }
+  color: #FFFEFE; }
   a:hover, a:focus {
     text-decoration: none;
     color: #2f89fc;
@@ -8005,7 +8009,7 @@ a {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.8);
+  color: #004B72;
   font-weight: 400; }
 
 .text-primary {
@@ -10300,14 +10304,14 @@ a[data-toggle="collapse"] {
 }
 #sidebar {
   /* don't forget to add all the previously mentioned styles here too */
-  background: #7386D5;
+  background: #004B72;
   color: #fff;
   transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #6d7fcc;
+  background: #004B72;
 }
 
 #sidebar ul.components {
@@ -10362,4 +10366,11 @@ ul ul a {
 .table_disp{
   margin-top:15px;
   border:3px solid #dee2e6;
+}
+
+.shadow-top {
+  border-bottom: 1px solid #004B72;
+  -webkit-box-shadow: 0px -4px 26px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px -4px 26px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px -4px 26px rgba(50, 50, 50, 0.75);
 }
