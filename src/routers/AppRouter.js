@@ -32,7 +32,7 @@ export default function AppRouter() {
      
       <Switch>
 
-        <Route exact path="/" component={HomePage} />
+        <PrivateRoute exact path="/" component={DashboardPage} />
        
         <Route exact path="/profile/:username" component={ProfilePage} />
         <Route exact path="/activate_account" component={ActivateAccountPage} />

@@ -9,7 +9,7 @@ export default function PublicRoute({ component: Component, ...rest }) {
       {! window.localStorage.getItem('userId') ? (
         <Component />
       ) : (
-        <Redirect to="/dashboard" />
+        <Redirect to="/" />
       )}
     </Route>
   );
