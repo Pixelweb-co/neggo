@@ -20,7 +20,7 @@ export default function Navbar() {
           <nav className="navbar navbar-expand-lg navbar-light py-3">
               <div className="container">
                   <a href="/" className="navbar-brand">
-                  <img src="assets/images/companyLogo.png" alt="me" width="150" height="80" /> 
+                  {/* <img src="assets/images/companyLogo.png" alt="me" width="150" height="80" />  */}
                      
                   </a>
               </div> 
@@ -31,17 +31,17 @@ export default function Navbar() {
             <span className="oi oi-menu"></span> Menu
           </button>
           
-          {!AuthManager.hasLogeedin() && (
+          {/* {!AuthManager.hasLogeedin() && (
           <>  
           <p className="button-custom order-lg-last mb-0 pl-2"><a href="/register-medical" className="btn btn-secondary py-2 px-3">Work with us!</a></p>
           <p className="button-custom order-lg-last mb-0 pl-2"><a href="/login" className="btn btn-primary py-2 px-3">Login</a></p>
           </>
-          )}
+          )} */}
 
           {AuthManager.hasLogeedin() && (
           <>  
           <p className="button-custom order-lg-last mb-0 pl-2"><a href="/dashboard" className="btn btn-primary py-2 px-3">Dashboard</a></p>
-          <p className="button-custom order-lg-last mb-0 pl-2"><button onClick={()=>{logout()}} className="btn btn-primary py-2 px-3">Logout</button></p>
+          <p className="button-custom order-lg-last mb-0 pl-2"><button onClick={()=>{logout()}} className="btn btn-primary py-2 px-3">Cerrar sesion</button></p>
           </>
           )}
 
@@ -50,7 +50,7 @@ export default function Navbar() {
 
 
 
-          <div className="collapse navbar-collapse" id="ftco-nav">
+          {/* <div className="collapse navbar-collapse" id="ftco-nav">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item active"><a href="/" className="nav-link pl-0">Home</a></li>
                 <li className="nav-item"><a href="/about" className="nav-link">About</a></li>
@@ -60,7 +60,7 @@ export default function Navbar() {
                 <li className="nav-item"><a href="/blog" className="nav-link">Blog</a></li>
               <li className="nav-item"><a href="/contact" className="nav-link">Contact</a></li>
             </ul>
-          </div>
+          </div> */}
         </div>
     </nav>
     )
