@@ -178,7 +178,7 @@ useEffect(() => {
      
         </div> 
     <div className="row">
-      <div className="col-6">
+      <div className="col-md-6 col-xs-12 ">
       
  
               <div className="ui focus mt-15">
@@ -336,7 +336,7 @@ useEffect(() => {
 
       </div>
 
-       <div className="col-6">
+       <div className="col-md-6 col-xs-12">
        
        <div className="ui focus mt-15">
                 <div className="ui left icon swdh95">
@@ -469,10 +469,10 @@ useEffect(() => {
    
    {!props.edit ? (
     <div className="row">
-      <div className="col-6">
+      <div className="col-md-6 col-xs-12">
       
       </div>
-      <div className="col-6">
+      <div className="col-md-6 col-xs-12">
         <input type="submit" name="register" className="next action-button float-right"  value="Next" />
       </div></div>
    ):(<></>)}

@@ -27,14 +27,12 @@ import { faUser,faEdit, faPaperclip, faCheck,faAlignJustify } from '@fortawesome
 // import logodarktext from '../../assets/images/logo-text.png';
 // import logolighttext from '../../assets/images/logo-light-text.png';
 
-const Header = () => {
+const Header = (props) => {
 
     /*--------------------------------------------------------------------------------*/
     /*To open SIDEBAR-MENU in MOBILE VIEW                                             */
     /*--------------------------------------------------------------------------------*/
-    const showMobilemenu = () => {
-        document.getElementById('main-wrapper').classList.toggle('show-sidebar');
-    }
+
 
     return (
         <header className="topbar navbarbg" data-navbarbg="skin6">
@@ -44,9 +42,9 @@ const Header = () => {
                     {/* Logos Or Icon will be goes here for Light Layout && Dark Layout                */}
                     {/*--------------------------------------------------------------------------------*/}
                    
-                    <NavbarBrand href="/">
+                    <NavbarBrand >
                     
-                    <button class="btn btn-light toggle-b d-md-none" type="button">
+                    <button class="btn btn-light toggle-b d-md-none" type="button" onClick={()=>{props.visibleMenu()}}>
                        <FontAwesomeIcon icon={faAlignJustify}/>
                     </button>
 
@@ -78,9 +76,9 @@ const Header = () => {
                 <Collapse className="navbarbg" navbar data-navbarbg="skin6" >
                     <Nav className="ml-auto float-right" navbar>
                         <NavItem>
-                        <button class="btn btn-light toggle-b" type="button">
-                       a
-                         </button>
+                        <button class="btn btn-light toggle-b " type="button" onClick={()=>{props.visibleMenu()}}>
+                       <FontAwesomeIcon icon={faAlignJustify}/>
+                    </button>
                            
                         </NavItem>
                         {/*--------------------------------------------------------------------------------*/}

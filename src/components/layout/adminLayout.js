@@ -2,7 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Headerb from '../dashboard/header'
 import avatar from '../../assets/images/path6190avatarL.png';
 import { NavLink,useHistory } from "react-router-dom";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
+import { useMediaQuery } from 'react-responsive'
 
 import {
     Button,
@@ -17,11 +24,40 @@ import {
   } from 'semantic-ui-react';
 
 export default function AdminLayout(props) {
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
+    
+    const isDesktopOrLaptop = useMediaQuery({
+      query: '(min-width: 1224px)'
+    })
+
+    useEffect(() => {
+      
+     
+
+      if(!isDesktopOrLaptop){
+        setVisible(false)
+
+      }else{
+        setVisible(true)
+
+      }
+
+
+    }, [])
+
+
+    const showMobilemenu = () => {
+    
+      if(visible ){
+      setVisible(false)
+      }else{
+        setVisible(true)  
+       } 
+    }
 
     return (
         <div>
-        <Headerb/>
+        <Headerb visibleMenu={showMobilemenu}/>
             
 
       
