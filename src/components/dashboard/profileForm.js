@@ -39,9 +39,8 @@ export default function ProfileForm() {
 
 
     return (
-        <div className="container">
-            <h2>Mi profile information</h2>
-
+        <div className="profile_form">
+        
        <Step1 edit={true} updateWizard={update_wizard} getStore={step1_form} /> 
    
 

@@ -12,13 +12,18 @@ import {
     DropdownMenu
 } from 'reactstrap';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser,faEdit, faPaperclip, faCheck,faAlignJustify } from '@fortawesome/free-solid-svg-icons'
+
+
+
 // import profilephoto from '../../assets/images/users/1.jpg';
 
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
 /*--------------------------------------------------------------------------------*/
 // import logodarkicon from '../../assets/images/logo-icon.png';
-// import logolighticon from '../../assets/images/logo-light-icon.png';
+ import logolighticon from '../../assets/images/g6136.png';
 // import logodarktext from '../../assets/images/logo-text.png';
 // import logolighttext from '../../assets/images/logo-light-text.png';
 
@@ -38,14 +43,22 @@ const Header = () => {
                     {/*--------------------------------------------------------------------------------*/}
                     {/* Logos Or Icon will be goes here for Light Layout && Dark Layout                */}
                     {/*--------------------------------------------------------------------------------*/}
+                   
                     <NavbarBrand href="/">
+                    
+                    <button class="btn btn-light toggle-b d-md-none" type="button">
+                       <FontAwesomeIcon icon={faAlignJustify}/>
+                    </button>
+
+
+
                         <b className="logo-icon">
-                            {/* <img src={logodarkicon} alt="homepage" className="dark-logo" />
+                            {/* <img src={logodarkicon} alt="homepage" className="dark-logo" />*/}
                             <img
                                 src={logolighticon}
                                 alt="homepage"
                                 className="light-logo"
-                            /> */}
+                            /> 
                         </b>
                         <span className="logo-text">
                             {/* <img src={logodarktext} alt="homepage" className="dark-logo" />
@@ -59,14 +72,16 @@ const Header = () => {
                     {/*--------------------------------------------------------------------------------*/}
                     {/* Mobile View Toggler  [visible only after 768px screen]                         */}
                     {/*--------------------------------------------------------------------------------*/}
-                    <button className="btn-link nav-toggler d-block d-md-none" onClick={() => showMobilemenu()}>
-                        <i className="ti-menu ti-close" />
-                    </button>
+                  
+
                 </div>
                 <Collapse className="navbarbg" navbar data-navbarbg="skin6" >
                     <Nav className="ml-auto float-right" navbar>
                         <NavItem>
-                            <a href="https://www.wrappixel.com/templates/adminpro-react-redux-admin/" className="btn btn-danger mr-2" style={{ marginTop: '15px' }}>Upgrade to Pro</a>
+                        <button class="btn btn-light toggle-b" type="button">
+                       a
+                         </button>
+                           
                         </NavItem>
                         {/*--------------------------------------------------------------------------------*/}
                         {/* Start Profile Dropdown                                                         */}

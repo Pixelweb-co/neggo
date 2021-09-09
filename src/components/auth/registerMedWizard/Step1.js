@@ -141,7 +141,7 @@ useEffect(() => {
   return (
     <React.Fragment>
       <div className="sign_form">
-      <h2 className="fs-title">Datos personales</h2>
+      <h2 className="fs-title">Mi información personal</h2>
        
         
           <div>

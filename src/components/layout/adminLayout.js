@@ -1,96 +1,80 @@
 import React, { useEffect, useState } from 'react'
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, ListGroup, ListGroupItem, Collapse, Button, CardBody, Card} from 'reactstrap';
-import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser,faEdit, faPaperclip, faCheck, faHome, faLandmark, faCreditCard, faTasks, faShieldAlt, faCog,  } from '@fortawesome/free-solid-svg-icons'
+import Headerb from '../dashboard/header'
+import avatar from '../../assets/images/path6190avatarL.png';
 import { NavLink,useHistory } from "react-router-dom";
-import AuthManager from '../../helpers/AuthManager'
-import { useDispatch, useSelector } from 'react-redux'
-import { store,setUserData } from '../../reducers/index'
-import Footer from '../common/footer'
-import env from "react-dotenv";
-import Sidebar from '../common/sidebar'
+
+
+import {
+    Button,
+    Checkbox,
+    Grid,
+    Header,
+    Icon,
+    Image,
+    Menu,
+    Segment,
+    Sidebar,
+  } from 'semantic-ui-react';
 
 export default function AdminLayout(props) {
-
-  const dispatch = useDispatch()
-  // const [loading, setLoading] = useState(null)
-  let history = useHistory()
-
-  const userData = useSelector((store) => store.user)
-
-  useEffect(() => {
-    // setLoading(true)
-    // //console.log('dashboar props', props)
-    // axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT
-    getUserData()
-  }, [])
-
-  function getUserData() {
-
-axios.defaults.baseURL = env.API_URL
-    AuthManager.hasToken()
-    const userId = window.localStorage.getItem('userId')
-    if (userId) {
-      axios
-        .get(`/api/users/${userId}`)
-        .then((response) => {
-          dispatch(setUserData(response.data))
-          
-          // setLoading(false)
-        })
-        .catch((error) => {
-          dispatch(setUserData(error))
-       //   history.push('/login')
-        })
-    } else {
-    //  history.push('/login')
-    }
-  }
-
-
-  const [dropdownOpen, setOpen] = useState(false);
-
-  const toggle = () => setOpen(!dropdownOpen);
-
-const logout = () =>{
-
-    AuthManager.logout()
-    history.push('/login')
-
-}
-
-
+    const [visible, setVisible] = useState(true)
 
     return (
-    <div className="admin_panel">
-            <Sidebar/>
-       
-        <div className="row ">
-           
+        <div>
+        <Headerb/>
+            
 
-             <div className="col-10 ">
-                
-             
-             <div className="row ">
+      
+          <Sidebar.Pushable as={Segment} className="mainLayout">
+          
 
+          <Sidebar
+            as={Menu}
+            animation='overlay'
+            icon='labeled'
+            animation="uncover"
+            direction="left"
+            inverted
+            
+            vertical
+            visible={visible}
+            width='thin'
+          >
+          <div align="center" className="user_data_l">
 
-             {props.children}
+          <h2>Mi Cuenta</h2>
 
+          <img src={avatar}/>
 
+          <h3>Hola</h3>
 
-             </div>
-             
-             
-             </div>
+          </div>
+          
+            <Menu.Item as='a' href="/">
+              <Icon name='home' />
+              
+              Inicio
+            </Menu.Item>
+            <Menu.Item as='a' href="/mis_finanzas">
+              <Icon name='money' />
+              Mis Finanzas
+            </Menu.Item>
+            <Menu.Item as='a' href="/creditos">
+              <Icon name='money' />
+              Créditos
+            </Menu.Item>
+            <Menu.Item as='a' href="/miprofile  ">
+              <Icon name='user' />
+              Mis datos
+            </Menu.Item>
+          </Sidebar>
 
-
-        </div>
-
-        <div className="row footer">
-        <Footer/>
-        </div>
-
+          <Sidebar.Pusher>
+            <Segment basic>
+              {props.children}
+            </Segment>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
         </div>
     )
 }

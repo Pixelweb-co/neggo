@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css'; 
 import './styles/style.css'
+import 'semantic-ui-css/semantic.min.css'
+import 'devextreme/dist/css/dx.light.css';
 import $ from 'jquery';
 import './index.css';
 import App from './App'; 
