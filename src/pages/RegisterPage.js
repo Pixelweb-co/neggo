@@ -1,6 +1,6 @@
 // import RegisterForm from '../components/auth/RegisterForm'
 import Layout from '../components/layout/layoutForm'
-import MasterForm from "../components/registerwizard/MasterForm";
+import Wizard from '../components/registerwizard/wizardAnimated'
 
 export default function RegisterPage() {
     return (
@@ -10,7 +10,7 @@ export default function RegisterPage() {
                 
                 <div className="col-md col-xs-12 mb-10">
 
-                    <MasterForm/>
+                    <Wizard/>
                 
                 </div>
          
