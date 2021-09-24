@@ -231,4 +231,4 @@ const Wizard = props => {
   );
 };
 
-export default Wizard;
+export default Wizard  ;
