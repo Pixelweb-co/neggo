@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, ListGroup, ListGroupItem, Collapse, Button, CardBody, Card} from 'reactstrap';
-import {  Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser,faEdit, faPaperclip, faCheck, faHome } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from "react-router-dom";
+import React from 'react'
+
 
 import Step1 from '../auth/registerMedWizard/Step1';
 
-import { store, setStep,setStepForm,fetchProgress,fetchSuccess } from '../../reducers/index'
-import { useStore, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 export default function ProfileForm() {

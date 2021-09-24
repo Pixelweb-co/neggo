@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, ListGroup, ListGroupItem, Collapse, Button, CardBody, Card} from 'reactstrap';
 import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser,faEdit, faPaperclip, faCheck, faHome, faLandmark, faCreditCard, faTasks, faShieldAlt, faCog,  } from '@fortawesome/free-solid-svg-icons'
 import { NavLink,useHistory } from "react-router-dom";
 import AuthManager from '../../helpers/AuthManager'
 import { useDispatch, useSelector } from 'react-redux'

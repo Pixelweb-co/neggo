@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Headerb from '../dashboard/header'
 import avatar from '../../assets/images/path6190avatarL.png';
-import { NavLink,useHistory } from "react-router-dom";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
-} from "react-device-detect";
+
 
 import { useMediaQuery } from 'react-responsive'
 
 import {
-    Button,
-    Checkbox,
-    Grid,
-    Header,
     Icon,
-    Image,
     Menu,
     Segment,
     Sidebar,
