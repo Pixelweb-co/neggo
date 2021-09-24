@@ -110,7 +110,7 @@ console.log(currentStep)
     // If the current step is not 3, then render the "next" button
     if (currentStep < 7) {
       return (
-        <Button color="primary float-right" onClick={this._next}>
+        <Button color="primary float-left" onClick={this._next}>
           Siguiente
         </Button>
       );
