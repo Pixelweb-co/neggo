@@ -10605,6 +10605,7 @@ color:white;
   font-size:2em
 }
 
+<<<<<<< HEAD
 .botones{
   bottom: 0.5rem;
   left: 0.5rem;
@@ -10626,4 +10627,8 @@ color:white;
 
 .closeb-t{
   margin-top:15px
+=======
+.re_password{
+  background-color: red;
+>>>>>>> 86791cb91926409fb31cb755bbb34cdad824f66d
 }
