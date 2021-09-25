@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from '../dashboard/header.jsx';
 import Sidebar from '../dashboard/sidebar.jsx';
-import Footer from '../dashboard/footer.jsx';
 import ThemeRoutes from '../../routers/routing';
 
 const Fulllayout = (props) => {

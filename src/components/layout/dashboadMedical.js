@@ -1,6 +1,6 @@
 
 import Navbar from '../common/navbar_medical'
-import Footer from '../common/footer'
+
  
  
 

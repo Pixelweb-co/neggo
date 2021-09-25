@@ -1,6 +1,6 @@
 
 import Navbar from '../common/navbar'
-import Footer from '../common/footer'
+
  
  
 
@@ -13,9 +13,6 @@ export default function PageLayout(props) {
 
     <div key="xx2" >{props.children}</div>
 
-
-    
-    <Footer/>
 
 </div>
  
