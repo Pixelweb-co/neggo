@@ -10559,6 +10559,7 @@ color:white;
 .first-step{
   right: 0;
   opacity: 1;
+  margin-top:15%
 }
 
 /* Button */
@@ -10586,3 +10587,19 @@ color:white;
   opacity: 0;
 }
 
+.form-step-wrap input[type=text]::placeholder{
+  color:blue
+}
+
+.sig{
+  margin-top:20%
+}
+
+.last{
+  margin-top:15%
+}
+
+
+.text-step{
+  font-size:2em
+}

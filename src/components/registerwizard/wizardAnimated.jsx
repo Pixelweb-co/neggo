@@ -62,8 +62,13 @@ const Wizard = props => {
     <div class="col-sm-12 col-md-12 col-md-offset-4 col-lg-12 col-lg-offset-3">
       {/* <!-- Offset --> */}
       <div class="form-step-wrap">
+      <div id="toph" class="row">
+          <div className="col-md-2 col-sm-2 col-xs-2">X</div>
+          <div className="col-md-8 col-sm-8 col-xs-8"></div>
+          <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3>1</h3></div>
+      </div>
           <div id="step1box" class="slider-step first-step step" data-next-step="step-mortgage-balance">
-            <div class="row tall">
+            <div class="row tall step1">
 
               <div class="col-xs-12 form-questions">
                 <div class="row">
@@ -86,8 +91,8 @@ const Wizard = props => {
             </div>
           </div>
           {/* <!-- Upper Text --> */}
-          <div id="step-mortgage-balance" class="slider-step step" data-next-step="step-home-value" data-back-to="step1box">
-            <div class="row">
+          <div id="step-mortgage-balance" class="slider-step step sig" data-next-step="step-home-value" data-back-to="step1box">
+            <div class="row step2">
               <div class="col-xs-12  ">
               <h5 style={{color: 'white'}} >Cuales son tus nombres?</h5>
                 <input
@@ -109,9 +114,9 @@ const Wizard = props => {
             </div>
           </div>
 
-          <div id="step-home-value" class="slider-step step" data-next-step="step-interest-rate" data-back-to="step-mortgage-balance">
+          <div id="step-home-value" class="slider-step step sig" data-next-step="step-email-rate" data-back-to="step-mortgage-balance">
 
-            <div class="row">
+            <div class="row step3">
               <div class="col-xs-12  ">
               <h5 style={{color: 'white'}}>Cuales son tus apellidos?</h5>
                 <input
@@ -133,9 +138,9 @@ const Wizard = props => {
             </div>
           </div>
     
-          <div id="step-interest-rate" class="slider-step step" data-next-step="step-home-buy-process" data-back-to="step-home-value">
+          <div id="step-email-rate" class="slider-step step sig" data-next-step="step-telefono-buy-process" data-back-to="step-home-value">
           
-            <div class="row">
+            <div class="row step4">
               <div class="col-xs-12  ">
               <h5 style={{color: 'white'}}>Cual es tu correo electrónico?</h5>
                 <input
@@ -157,9 +162,9 @@ const Wizard = props => {
             </div>
           </div>
          
-          <div id="step-home-buy-process" class="slider-step step" >
+          <div id="step-telefono-buy-process" class="slider-step step sig" data-next-step="step-password-process" data-back-to="step-email-rate">
          
-          <div class="row">
+          <div class="row step5">
             <div class="col-xs-12 ">
             <h5 style={{color: 'white'}}>Un numero de contacto?</h5>
             <p>Ten en cuenta que este será tu usuario.</p>
@@ -183,9 +188,9 @@ const Wizard = props => {
           </div>
         </div>
 
-        <div id="step-home-buy-process" class="slider-step step" data-next-step="step-home-key" >
+        <div id="step-password-process" class="slider-step step sig" data-next-step="step-end-process" data-back-to="step-telefono-buy-process">
          
-         <div class="row">
+         <div class="row step6">
            <div class="col-xs-12 ">
            <h5 style={{color: 'white'}}>Escribe tu clave de acceso</h5>
            <p>4 digitos numéricos</p>
@@ -209,9 +214,9 @@ const Wizard = props => {
          </div>
        </div>
 
-       <div id="step-home-buy-process" class="slider-step step" data-next-step="step-home-ok">
+       <div id="step-end-process" class="slider-step step last" data-back-to="step-password-process">
          
-         <div class="row">
+         <div class="row step7">
            <div class="col-xs-12 ">
            <h3 style={{color: 'white'}}>Genial!!</h3>
            <p className="text-step">
