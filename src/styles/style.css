@@ -10536,6 +10536,7 @@ color:white;
   overflow-x: hidden;
   width: 100%;
   color:white!important;
+  height: 100vh;
 }
 
 /* Each Step */
@@ -10602,4 +10603,27 @@ color:white;
 
 .text-step{
   font-size:2em
+}
+
+.botones{
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+
+.botones{
+  list-style:none;
+  padding:0px
+}
+
+.botones li {
+  float:left;
+  margin-right:10px
+}
+
+.btn-c{
+  position: relative
+}
+
+.closeb-t{
+  margin-top:15px
 }
