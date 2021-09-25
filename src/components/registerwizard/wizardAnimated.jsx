@@ -3,7 +3,7 @@ import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
 const Wizard = props => {
-[stepActual,setStep] = useState(1)
+const [stepActual,setStep] = useState(1)
 
   useEffect(()=>{
 
