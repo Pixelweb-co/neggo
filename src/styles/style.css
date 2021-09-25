@@ -10463,7 +10463,7 @@ color:white;
   position: absolute;
   
 }
-p {
+.p {
   margin-left:110px;
 }
 
@@ -10471,6 +10471,118 @@ p {
   margin-top: 10px;
 }
 
-.text-step{
-  color: white;
+
+.animate_c {
+  width: 100%;
+  position: relative;
+  top: 50%;
+  left:1%;
+  transform: translateX(-12%) translateY(-50%);
 }
+
+
+.cssanimation, .cssanimation span {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+
+.cssanimation span { display: inline-block }
+
+.fadeOutLeft { animation-name: fadeOutLeft }
+@keyframes fadeOutLeft {
+  from { opacity: 1 }
+  to {
+      opacity: 0;
+      transform: translateX(-50%);
+  }
+}
+
+.fadeOutRight { animation-name: fadeOutRight }
+@keyframes fadeOutRight {
+  from { opacity: 1 }
+  to {
+      opacity: 1;
+      transform: translateX(-100%);
+  }
+}
+
+.parent-box {
+  height: 300px;
+  width: 100%;
+   
+}
+
+.move-right {
+  animation-name: example;
+  animation-duration: 2s;
+}
+
+
+
+/* The animation code */
+@keyframes example {
+  from { opacity: 0 }
+  to {
+      opacity: 1;
+      transform: translateX(0%);
+  }
+}
+
+/* form step */
+
+.form-step-wrap{
+  /* position: relative; */
+  overflow-x: hidden;
+  width: 100%;
+  color:white!important;
+}
+
+/* Each Step */
+.slider-step{
+  /* box-shadow: 5px 5px 50px rgba(0,0,0,0.2);
+  background-color: #fafafa;
+  padding: 40px; */
+  position: absolute;
+  width: 100%; 
+  right: -50%;
+  top: 30px;
+  opacity: 0;
+  -webkit-transition:all, 0.3s linear;
+  -moz-transition: all, 0.3s linear;
+  -ms-transition: all, 0.3s linear;
+  -o-transition: all, 0.3s linear;
+  transition: all, 0.3s linear;
+}
+
+/* Show the 1st step */
+.first-step{
+  right: 0;
+  opacity: 1;
+}
+
+/* Button */
+.btn-next,
+.btn-back{
+  margin-top: 20px;
+  display: block;
+}
+
+/* Animations Settings */
+[data-anim="show-from--right"]{
+  right: 0;
+  opacity: 1;
+}
+[data-anim="show-from--left"]{
+  right: 0;
+  opacity: 1;
+}
+[data-anim="hide-to--right"]{
+  right: -50%;
+  opacity: 0;
+}
+[data-anim="hide-to--left"]{
+  right: 50%;
+  opacity: 0;
+}
+

@@ -41,6 +41,9 @@ class MasterForm extends Component {
     this._prev = this._prev.bind(this);
   }
 
+
+  
+
   // Use the submitted data to set the state
   handleChange(event) {
     const { name, value } = event.target;
@@ -70,7 +73,7 @@ class MasterForm extends Component {
     let currentStep = this.state.currentStep;
 console.log(currentStep)
     // If the current step is 1 or 2, then add one on "next" button click
-
+    
     currentStep += 1;
     //currentStep = currentStep >= 1 ? 2   : currentStep + 1;
     this.setState({
@@ -87,6 +90,8 @@ console.log(currentStep)
       currentStep: currentStep
     });
   }
+
+
 
   // The "next" and "previous" button functions
   get previousButton() {
@@ -137,11 +142,15 @@ console.log(currentStep)
           <Card  style={{backgroundColor: '#004B72' }}>
             <CardBody className="cards" style={{backgroundColor: '#004B72', color: 'white' }}>
               <CardText />
+             {this.state.currentStep == 1 && (
               <Step1
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
                 email={this.state.email}
+               
               />
+             )}
+
               <Step2
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
