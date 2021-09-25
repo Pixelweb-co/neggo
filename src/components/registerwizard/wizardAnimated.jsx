@@ -10,7 +10,7 @@ const [stepActual,setStep] = useState(1)
   window.jQuery(($)=>{
     //Dynamic Next
   $(".btn-next").on("click", function(){
-    var nextStep = $("#" + $(this).parents(".slider-step").data("nextStep"));
+    var nextStep = $("#step-"+stepActual + $(this).parents(".slider-step").data("nextStep"));
     $(this).parents(".slider-step").attr("data-anim","hide-to--left");
     nextStep.attr("data-anim","show-from--right");
   });
@@ -68,7 +68,7 @@ const [stepActual,setStep] = useState(1)
           <div className="col-md-8 col-sm-8 col-xs-8"></div>
           <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3 className="step-count">{stepActual}</h3></div>
       </div>
-          <div id="step1box" className="slider-step first-step step" data-next-step="step-mortgage-balance">
+          <div id="step-1" className="slider-step first-step step" data-next-step="step-1">
             <div className="row tall step1">
 
               <div className="col-xs-12 form-questions">
@@ -88,7 +88,7 @@ const [stepActual,setStep] = useState(1)
           </div>
           {/* <!-- Upper Text --> */}
 
-          <div id="step-mortgage-balance" class="slider-step step sig" data-next-step="step-home-value" data-back-to="step1box">
+          <div id="step-2" class="slider-step step sig" data-next-step="step-3" data-back-to="step-2">
             <div class="row step2">
               <div class="col-xs-12  ">
               <h5 className="text-step" style={{color: 'white'}} >Cúales son tus nombres?</h5>
@@ -103,7 +103,7 @@ const [stepActual,setStep] = useState(1)
             
           </div>
 
-          <div id="step-home-value" className="slider-step step sig" data-next-step="step-email-rate" data-back-to="step-mortgage-balance">
+          <div id="step-3" className="slider-step step sig" data-next-step="step-2" data-back-to="step-4">
 
 
             <div class="row step3">
@@ -120,7 +120,7 @@ const [stepActual,setStep] = useState(1)
             
           </div>
     
-          <div id="step-email-rate" className="slider-step step sig" data-next-step="step-telefono-buy-process" data-back-to="step-home-value">
+          <div id="step-4" className="slider-step step sig" data-next-step="step-5" data-back-to="step-3">
           
 
             <div class="row step4">
@@ -137,7 +137,7 @@ const [stepActual,setStep] = useState(1)
            
           </div>
          
-          <div id="step-telefono-buy-process" className="slider-step step sig" data-next-step="step-password-process" data-back-to="step-email-rate">
+          <div id="step-5" className="slider-step step sig" data-next-step="step-6" data-back-to="step-4">
          
 
           <div class="row step5">
