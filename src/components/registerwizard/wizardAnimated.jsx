@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
 const Wizard = props => {
-
+[stepActual,setStep] = useState(1)
 
   useEffect(()=>{
 
@@ -66,7 +66,7 @@ const Wizard = props => {
       <div id="toph" className="row">
           <div className="col-md-2 col-sm-2 col-xs-2"><img class="img-responsive closeb-t" src={closebt}/></div>
           <div className="col-md-8 col-sm-8 col-xs-8"></div>
-          <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3>1</h3></div>
+          <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3 className="step-count">{stepActual}</h3></div>
       </div>
           <div id="step1box" className="slider-step first-step step" data-next-step="step-mortgage-balance">
             <div className="row tall step1">
