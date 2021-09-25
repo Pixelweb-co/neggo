@@ -67,13 +67,14 @@ const Wizard = props => {
 
               <div class="col-xs-12 form-questions">
                 <div class="row">
-                <h5 style={{color: 'white', textAlign: 'center'}} >Bienvenido de nuevo</h5>
-                <p style={{textAlign: 'center'}}>Usuario</p>
+                <h5 className="text-step" style={{color: 'white', textAlign: 'center'}} >Bienvenido de nuevo</h5>
+                <p className="text-step" style={{textAlign: 'center'}}>Usuario</p>
                 <input
                 className="form-control"
                 type="text"
                 />
                 </div>
+                <a href="#" class="list-group-item list-group-item-action" style={{textAlign: 'center', color: 'white'}}>Olvide mi usuario/contraseña</a>
 
               </div>
               {/* <!-- /Form Questions --> */}
@@ -90,14 +91,14 @@ const Wizard = props => {
           <div id="step-mortgage-balance" class="slider-step step" data-next-step="step-home-value" data-back-to="step1box">
             <div class="row">
               <div class="col-xs-12  ">
-              <h5 style={{color: 'white', textAlign: 'center'}} >Bienvenido de nuevo</h5>
-              <p style={{textAlign: 'center'}}>Contraseña</p>
+              <h5 className="text-step" style={{color: 'white', textAlign: 'center'}} >Bienvenido de nuevo</h5>
+              <p className="text-step" style={{textAlign: 'center'}}>Contraseña</p>
                 <input
                 className="form-control"
                 type="text"
                 />
-                 <p style={{textAlign: 'center'}}>Comprobemos que eres tu...</p>
-                 <p style={{textAlign: 'center'}}>Captcha</p>
+                 <p className="text-step" style={{textAlign: 'center'}}>Comprobemos que eres tu...</p>
+                 <p className="text-step" style={{textAlign: 'center'}}>Captcha</p>
               </div>
             </div>
             <div class="row">
