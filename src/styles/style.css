@@ -10613,7 +10613,9 @@ color:white;
 
 .botones{
   list-style:none;
-  padding:0px
+  padding:0px;
+  float:left;
+  width:100%
 }
 
 .botones li {
@@ -10635,4 +10637,55 @@ color:white;
 
 .step-count{
   font-size:3em
+}
+
+.terminos-input{
+  padding-left:20%
+}
+
+.form-control-c{
+  width: 25px;
+height: 25px;
+border: 1px solid #CCC;
+margin-right: 10px;
+border-radius: 5px;
+}
+
+
+.botones h2 {
+  color:white
+}
+
+
+.alfrente{
+  z-index:9999
+}
+
+.finalizarbt{
+  background-color:#228CA5;
+  height:72px;
+  width:72px;
+  border-radius:50%;
+  border:0px;
+  position:absolute;
+  top:-15px;
+  color:white
+}
+
+.nav-fin{
+  list-style:none;
+  padding:0px;
+  float:right
+}
+
+.nav-fin li{
+  float:left
+}
+
+.finish-text{
+  
+}
+
+.sig-text{
+  width:75%!important
 }

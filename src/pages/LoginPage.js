@@ -13,7 +13,7 @@ export default function Login() {
     <Layout>
             
                 
-    <div className="col-md col-xs-12 mb-10">
+    <div className="">
 
     <LoginComponent/>
     

@@ -66,7 +66,7 @@ const [stepActual,setStep] = useState(1)
       <div id="toph" className="row">
           <div className="col-md-2 col-sm-2 col-xs-2"><img class="img-responsive closeb-t" src={closebt}/></div>
           <div className="col-md-8 col-sm-8 col-xs-8"></div>
-          <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3 className="step-count">{stepActual}</h3></div>
+          <div className="col-md-2 col-sm-2 col-xs-2" align="center"></div>
       </div>
           <div id="step1box" className="slider-step first-step step" data-next-step="step-mortgage-balance">
             <div className="row tall step1">
