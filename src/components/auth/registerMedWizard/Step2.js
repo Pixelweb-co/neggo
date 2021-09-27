@@ -448,8 +448,8 @@ axios.defaults.baseURL = 'http://localhost:5000'
                  
                 </div>  
 
-  <div class="row">
-    <div class="col">
+  <div className="row">
+    <div className="col">
   
     <div className="ui focus mt-15">
          <div className="ui left icon form-group swdh95">
@@ -504,10 +504,10 @@ axios.defaults.baseURL = 'http://localhost:5000'
                 <div className="row">
                 <div className="col-12">
 
-                <div class="form-group registration-date">
+                <div className="form-group registration-date">
                
-            	<div class="input-group disponibilidad_form">
-            		<span class="input-group-addon" ><span  aria-hidden="true">Day</span></span>
+            	<div className="input-group disponibilidad_form">
+            		<span className="input-group-addon" ><span  aria-hidden="true">Day</span></span>
             		
                     <select className="form-control" name="day_av" {...register('day_av')} >
 
@@ -522,17 +522,17 @@ axios.defaults.baseURL = 'http://localhost:5000'
 
                     </select>
 
-            		<span class="input-group-addon" ><span aria-hidden="true">from</span></span>
-            		<input class="form-control" name="from_time" {...register('from_time')} type="time"/>
-            		<span class="input-group-addon" ><span  aria-hidden="true">To</span></span>
-            		<input class="form-control" name="to_time"  {...register('to_time')}  type="time"/>
-            		<span class="input-group-btn">
-            	    	<button class="btn btn-success" type="button" onClick={()=>{add_availity()}}>Add</button>
+            		<span className="input-group-addon" ><span aria-hidden="true">from</span></span>
+            		<input className="form-control" name="from_time" {...register('from_time')} type="time"/>
+            		<span className="input-group-addon" ><span  aria-hidden="true">To</span></span>
+            		<input className="form-control" name="to_time"  {...register('to_time')}  type="time"/>
+            		<span className="input-group-btn">
+            	    	<button className="btn btn-success" type="button" onClick={()=>{add_availity()}}>Add</button>
                     	
                     </span>
             	</div>
             
-            <div class="container pb-15 mt-15 table_disp" >
+            <div className="container pb-15 mt-15 table_disp" >
             
             <table className="table">
             <tr>
@@ -550,7 +550,7 @@ axios.defaults.baseURL = 'http://localhost:5000'
             <td>{item.day}</td>
             <td>{item.from}</td>
             <td>{item.to}</td>
-            <td><button class="btn btn-danger">Remove</button></td>
+            <td><button className="btn btn-danger">Remove</button></td>
             </tr>
             )})}
             

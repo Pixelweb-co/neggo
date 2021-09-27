@@ -44,7 +44,7 @@ const Header = (props) => {
                    
                     <NavbarBrand >
                     
-                    <button class="btn btn-light toggle-b d-md-none" type="button" onClick={()=>{props.visibleMenu()}}>
+                    <button className="btn btn-light toggle-b d-md-none" type="button" onClick={()=>{props.visibleMenu()}}>
                        <FontAwesomeIcon icon={faAlignJustify}/>
                     </button>
 
@@ -76,7 +76,7 @@ const Header = (props) => {
                 <Collapse className="navbarbg" navbar data-navbarbg="skin6" >
                     <Nav className="ml-auto float-right" navbar>
                         <NavItem>
-                        <button class="btn btn-light toggle-b " type="button" onClick={()=>{props.visibleMenu()}}>
+                        <button className="btn btn-light toggle-b " type="button" onClick={()=>{props.visibleMenu()}}>
                        <FontAwesomeIcon icon={faAlignJustify}/>
                     </button>
                            

@@ -43,7 +43,7 @@
 	    nav:false,
 	    autoplayHoverPause: false,
 	    items: 1,
-	    navText : ["<span class='ion-md-arrow-back'></span>","<span class='ion-chevron-right'></span>"],
+	    navText : ["<span className='ion-md-arrow-back'></span>","<span className='ion-chevron-right'></span>"],
 	    responsive:{
 	      0:{
 	        items:1
@@ -64,7 +64,7 @@
 			margin: 30,
 			stagePadding: 0,
 			nav: false,
-			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+			navText: ['<span className="ion-ios-arrow-back">', '<span className="ion-ios-arrow-forward">'],
 			responsive:{
 				0:{
 					items: 1

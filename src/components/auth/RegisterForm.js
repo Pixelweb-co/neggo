@@ -3,7 +3,7 @@ import React from 'react';
 function RegisterForm(props) {
   return (
 
-<div class="main_div container">
+<div className="main_div container">
 <p>Estamos contentos que quieras hacer parte de nuestra familia Neggo y por ello, queremos conocerte mejor,
      a continuacion te vamos hacer algunas preguntas para que podamos conocerte en nuestra plataforma...
     <br/><br/>
@@ -11,8 +11,8 @@ function RegisterForm(props) {
     <br/><br/><br/>
     <span>Si algun punto no quieres continuar con el proceso de registro puedes hacerlo con la tecla esc</span>
   </p>
-            <div class="sub_div"> 
-            <button class="btn btn-primary">Empecemos</button>
+            <div className="sub_div"> 
+            <button className="btn btn-primary">Empecemos</button>
             </div>
         </div>
 
@@ -31,7 +31,7 @@ function RegisterForm(props) {
     //   </div>
     //   <div className="clearfix"></div>
     //   <div  id="footer">
-    //   <button class="btn btn-primary">Empecemos</button>
+    //   <button className="btn btn-primary">Empecemos</button>
     //   </div>
     // </div>
   );

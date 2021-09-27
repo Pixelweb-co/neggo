@@ -190,10 +190,10 @@ const Wizard = props => {
           </div>
         </div>
 
-        {/* <div id="step-password-process" class="slider-step step sig" data-next-step="step-end-process" data-back-to="step-telefono-buy-process">
+        {/* <div id="step-password-process" className="slider-step step sig" data-next-step="step-end-process" data-back-to="step-telefono-buy-process">
          
-         <div class="row step6">
-           <div class="col-xs-12 ">
+         <div className="row step6">
+           <div className="col-xs-12 ">
            <h5 className="text-step" style={{color: 'white'}}>Escribe tu clave de acceso</h5>
            <p className="text-step">4 digitos numéricos</p>
                <input
@@ -204,22 +204,22 @@ const Wizard = props => {
 
            </div>
          </div>
-         <div class="row">
-           <div class="col-xs-12">
-             <input id="next-home-buy-process" type='button' value='Continue' tabindex="11" class="btn-success form-control btn-next" />
+         <div className="row">
+           <div className="col-xs-12">
+             <input id="next-home-buy-process" type='button' value='Continue' tabindex="11" className="btn-success form-control btn-next" />
            </div>
          </div>
-         <div class="row">
-           <div class="col-xs-12">
-             <a id="back-home-buy-process" class="btn-back">back</a>
+         <div className="row">
+           <div className="col-xs-12">
+             <a id="back-home-buy-process" className="btn-back">back</a>
            </div>
          </div>
        </div> */}
 
-       {/* <div id="step-end-process" class="slider-step step last" data-back-to="step-password-process">
+       {/* <div id="step-end-process" className="slider-step step last" data-back-to="step-password-process">
          
-         <div class="row step7">
-           <div class="col-xs-12 ">
+         <div className="row step7">
+           <div className="col-xs-12 ">
            <h3 className="text-step" style={{color: 'white'}}>Genial!!</h3>
            <p className="text-step">
             Para terminar, acepta nuestras condiciones de servicio y privacidad
@@ -240,19 +240,19 @@ const Wizard = props => {
       <p>captcha</p>
            </div>
          </div>
-         <div class="row">
-           <div class="col-xs-12">
-             <input id="next-home-buy-process" type='button' value='Continue' tabindex="15" class="btn-success form-control btn-next" />
+         <div className="row">
+           <div className="col-xs-12">
+             <input id="next-home-buy-process" type='button' value='Continue' tabindex="15" className="btn-success form-control btn-next" />
            </div>
          </div>
-         <div class="row">
-           <div class="col-xs-12">
-             <a id="back-home-buy-process" class="btn-back">back</a>
+         <div className="row">
+           <div className="col-xs-12">
+             <a id="back-home-buy-process" className="btn-back">back</a>
            </div>
          </div>
        </div> */}
 
-        <div class="clear"></div>
+        <div className="clear"></div>
       </div>
      
     </div>

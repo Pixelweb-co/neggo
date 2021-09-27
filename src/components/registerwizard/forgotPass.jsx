@@ -64,7 +64,7 @@ const [stepActual,setStep] = useState(1)
       {/* <!-- Offset --> */}
       <div className="form-step-wrap">
       <div id="toph" className="row">
-          <div className="col-md-2 col-sm-2 col-xs-2"><img class="img-responsive closeb-t" src={closebt}/></div>
+          <div className="col-md-2 col-sm-2 col-xs-2"><img className="img-responsive closeb-t" src={closebt}/></div>
           <div className="col-md-8 col-sm-8 col-xs-8"></div>
           <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3 className="step-count">{stepActual}</h3></div>
       </div>
@@ -89,9 +89,9 @@ const [stepActual,setStep] = useState(1)
           </div>
           {/* <!-- Upper Text --> */}
 
-          <div id="step-mortgage-balance" class="slider-step step sig" data-next-step="step-home-value" data-back-to="step1box">
-            <div class="row step2">
-              <div class="col-xs-12  ">
+          <div id="step-mortgage-balance" className="slider-step step sig" data-next-step="step-home-value" data-back-to="step1box">
+            <div className="row step2">
+              <div className="col-xs-12  ">
               <h5 className="text-step" style={{color: 'white', textAlign: 'center'}} >Recupera tu cuenta</h5>
                 <p className="text-step" style={{ textAlign: 'center'}}>Escribe el código de validación que te hemos enviado</p>
                 <input
@@ -106,8 +106,8 @@ const [stepActual,setStep] = useState(1)
           <div id="step-home-value" className="slider-step step sig" data-next-step="step-email-rate" data-back-to="step-mortgage-balance">
 
 
-            <div class="row step3">
-              <div class="col-xs-12  ">
+            <div className="row step3">
+              <div className="col-xs-12  ">
               <h5 className="text-step" style={{color: 'white', textAlign: 'center'}} >Recupera tu cuenta</h5>
                 <p className="text-step" style={{ textAlign: 'center'}}>Válida el código que te hemos enviado</p>
                 <input
@@ -122,8 +122,8 @@ const [stepActual,setStep] = useState(1)
           <div id="step-email-rate" className="slider-step step sig" data-next-step="step-telefono-buy-process" data-back-to="step-home-value">
           
 
-            <div class="row step4">
-              <div class="col-xs-12  ">
+            <div className="row step4">
+              <div className="col-xs-12  ">
               <h5 className="text-step" style={{color: 'white', textAlign: 'center'}} >Recupera tu cuenta</h5>
                 <p className="text-step" style={{textAlign: 'center'}}>Escribe tu nueva clave de acceso</p>
                 <input
@@ -143,8 +143,8 @@ const [stepActual,setStep] = useState(1)
           <div id="step-telefono-buy-process" className="slider-step step sig" data-next-step="step-password-process" data-back-to="step-email-rate">
          
 
-          <div class="row step5">
-            <div class="col-xs-12 ">
+          <div className="row step5">
+            <div className="col-xs-12 ">
             <h5 className="text-step" style={{color: 'white', textAlign: 'center'}}>Inicia sesion o crea tu cuenta</h5>
             <button type="button" className="btn btn-success" >Iniciar sesión</button><br/><br/>
             <button type="button" className="btn btn-primary">Crea tu cuenta</button>
@@ -172,12 +172,12 @@ const [stepActual,setStep] = useState(1)
  <input id="next-home-buy-process" type='button' value='Continue' tabindex="11" className="btn-success form-control btn-next" />
            */}
 
-           <a id="next-home-buy-process" className="btn-back"><img class="" src={backbt}/></a>
+           <a id="next-home-buy-process" className="btn-back"><img className="" src={backbt}/></a>
 
          </li>
          <li>
            
-             <a id="back-home-buy-process" className=" btn-next"><img class="img-responsive " src={nextbt}/></a>
+             <a id="back-home-buy-process" className=" btn-next"><img className="img-responsive " src={nextbt}/></a>
            
          </li>
   </ul>
