@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@aduh95/jsx-fontawesome": "^0.1.9",
+    "@fontsource/saira": "^4.5.1",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",

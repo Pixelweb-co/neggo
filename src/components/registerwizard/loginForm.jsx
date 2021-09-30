@@ -2,8 +2,19 @@ import React, { useEffect, useState } from 'react'
 import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
+import "@fontsource/saira"; // Defaults to weight 400.
 const Wizard = props => {
-const [stepActual,setStep] = useState(1)
+  const [stepActual,setStep] = useState(1)
+  const [error_v, setError_v] = useState(null)
+
+
+  const register = ()=> {
+    window.jQuery(($)=>{
+    $("#step-"+7).attr("data-anim","hide-to--left").removeClass('alfrente');
+    $('#'+8).attr("data-anim","show-from--right").addClass('alfrente');
+   })
+  
+  }
 
   useEffect(()=>{
 
@@ -25,6 +36,79 @@ const [stepActual,setStep] = useState(1)
 
 })
 },[]);
+
+
+const _next_step = () =>{
+  window.jQuery(($)=>{
+  if(stepActual <= 2){
+    var nextStep = $("#step-"+stepActual).data("nextStep")
+    console.log("actual ","#step-"+stepActual)
+    console.log("next ",nextStep)
+    
+    
+
+    if(stepActual > 1 && $("#step-"+stepActual+' input').val() == ''){
+  //   alert($("#step-"+stepActual+' input').val())
+    
+  
+  setError_v("Este campo es requerido!")
+
+    }else{
+
+      if(stepActual == 2 ){
+        var inputD = $("#step-"+stepActual+' input').val()
+        console.log("tam ",inputD.length)
+        //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+      
+        if (inputD.length < 10 ) {
+          setError_v("Este campo debe tener almenos 10 caracteres!")
+          return false
+
+        }
+
+    }
+  
+      
+    $("#step-"+stepActual).attr("data-anim","hide-to--left").removeClass('alfrente');
+    $('#'+nextStep).attr("data-anim","show-from--right").addClass('alfrente');
+    var stepx = stepActual 
+    setError_v(null)
+    stepx += 1
+    console.log(stepx)
+    setStep(stepx)
+
+    }
+   
+  }
+})
+
+}
+
+
+const _back_step = () =>{
+
+    
+  console.log("b ",stepActual)
+  window.jQuery(($)=>{
+  if(stepActual >= 1){
+  
+    var backTo = $("#step-"+stepActual).data("backTo")
+    console.log("actual ","#step-"+stepActual)
+    console.log("next ",backTo)
+   
+ 
+    $("#step-"+stepActual).attr("data-anim","hide-to--left").removeClass('alfrente');;
+    $('#'+backTo).attr("data-anim","show-from--right").removeClass('alfrente');;
+    setError_v(null)
+    var stepx = stepActual 
+    stepx -= 1 
+    console.log(stepx)
+    setStep(stepx)
+   
+    
+}
+})
+}
 
   
 
@@ -66,10 +150,10 @@ const [stepActual,setStep] = useState(1)
       <div id="toph" className="row">
           <div className="col-md-2 col-sm-2 col-xs-2"><img className="img-responsive closeb-t" src={closebt}/></div>
           <div className="col-md-8 col-sm-8 col-xs-8"></div>
-          <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3 className="step-count">{stepActual}</h3></div>
+          <div className="col-md-2 col-sm-2 col-xs-2" align="center"></div>
       </div>
        
-      <div id="step1box" className="slider-step first-step step" data-next-step="step-mortgage-balance">
+      <div id="step-1" className="slider-step first-step step" data-next-step="step-2">
             <div className="row tall">
             <div className="col-md-4 none-xs none-xs">
 
@@ -77,15 +161,19 @@ const [stepActual,setStep] = useState(1)
 
               <div className="col-xs-12 col-sm-12  form-questions col-md-4 ">
                 <div className="row">
-                <h5 className="text-step" style={{color: 'white', textAlign: 'center'}} >Bienvenido de nuevo</h5>
-                <p className="text-step" style={{textAlign: 'center'}}>Usuario</p>
+                <h5 className="text-step" style={{color: 'white', textAlign: 'center', fontFamily: "Saira"}} >Bienvenido de nuevo</h5>
+                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Usuario</p>
                 <input
-                className="form-control"
+                className="form-control transparent-input1"
                 type="text"
                 />
                 </div>
-                <a href="http://localhost:3000/register" className="list-group-item list-group-item-action" style={{textAlign: 'center', color: 'white'}}>Olvide mi usuario/contraseña</a>
-
+                <div className="separador">
+                <a href="http://localhost:3000/register" className="list-group-item list-group-item-action" style={{textAlign: 'center', color: 'white', fontFamily: "Saira"}}>Olvide mi usuario/contraseña</a>
+                </div>
+               
+                
+                <button type="button" className=" btn-success btns " onClick={_next_step} style={{fontFamily: "Saira"}}>Siguiente</button>
               </div>
 
               <div className="col-md-4 none-xs none-xs">
@@ -97,18 +185,33 @@ const [stepActual,setStep] = useState(1)
           
           </div>
              {/* <!-- Upper Text --> */}
-             <div id="step-mortgage-balance" className="slider-step step last" data-next-step="step-home-value" data-back-to="step1box">
-            <div className="row">
-              <div className="col-xs-12  ">
-              <h5 className="text-step" style={{color: 'white', textAlign: 'center'}} >Bienvenido de nuevo</h5>
-              <p className="text-step" style={{textAlign: 'center'}}>Contraseña</p>
+
+             <div id="step-2" className="slider-step step last" data-back-to="step-1">
+             <div className="row tall">
+            <div className="col-md-4 none-xs none-xs">
+
+            </div>
+
+              <div className="col-xs-12 col-sm-12  form-questions col-md-4 ">
+                <div className="row">
+                <h5 className="text-step" style={{color: 'white', textAlign: 'center', fontFamily: "Saira"}} >Bienvenido de nuevo</h5>
+                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Contraseña</p>
                 <input
-                className="form-control"
+                className="form-control transparent-input1"
                 type="text"
                 />
-                 <p className="text-step" style={{textAlign: 'center'}}>Comprobemos que eres tu...</p>
-                 <p className="text-step" style={{textAlign: 'center'}}>Captcha</p>
+                </div>
+                <div className="separador">
+               
+                </div>
+                <button type="button" className=" btn-success btns " style={{fontFamily: "Saira"}}>Ingresar</button>
+                
               </div>
+
+              <div className="col-md-4 none-xs none-xs">
+
+              </div>
+              {/* <!-- /Form Questions --> */}
             </div>
 
     
@@ -128,20 +231,51 @@ const [stepActual,setStep] = useState(1)
   
   <div className="btn-c">
   <ul className="botones">
-    <li>
-{/*           
- <input id="next-home-buy-process" type='button' value='Continue' tabindex="11" className="btn-success form-control btn-next" />
-           */}
+  {/* <li>
+  {stepActual >= 2 && (   
+       
+         <a id="back-home-buy-process" className="btn-backx" onClick={_back_step}><img className="" src={backbt}/></a>
 
-           <a id="next-home-buy-process" className="btn-back"><img className="" src={backbt}/></a>
+         
+     )}
+ </li> */}
 
-         </li>
-         <li>
+      {/* <li>
+          {stepActual <= 2 && (   
+            
+       
+             <a id="next-home-buy-process" className="btn-nextx" onClick={_next_step}><img className="img-responsive " src={nextbt}/></a>
            
-             <a id="back-home-buy-process" className=" btn-next"><img className="img-responsive " src={nextbt}/></a>
+         
+         )}
+      </li> */}
+
+       {/* <li className="sig-text">
+         {stepActual > 1 && stepActual < 2 && (   
+          
+       
+       <h2 style={{fontFamily: "Saira"}}>Siguiente</h2>
+      
+  
+         )}
+      </li> */}
+
+      {/* <li className="sig-text">
+         {stepActual == 1 && (   
            
-         </li>
+       
+            <h2 style={{fontFamily: "Saira"}}>Empecemos</h2>
+           
+        
+         )}
+      </li>   */}
+        
+         {/* {stepActual == 2 && (<li className="finish-text btn-primary" ><h2 style={{fontFamily: "Saira"}}>Finalizar</h2></li>)} */}
+         {/* {stepActual == 2 && (<li className="finish-btn"><h2><button type="button" className="finalizarbt" onClick={register}>-></button></h2></li>)} */}
+
+
   </ul>
+  
   </div>
   </div>
   

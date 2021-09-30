@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@200&display=swap');
 /*!
  * Bootstrap v4.2.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -10448,7 +10449,7 @@ color:white;
 
 .botones{
   position: absolute;
-  margin-top: 60px;
+  margin-top: 90px;
   bottom: 0;
 
 }
@@ -10589,7 +10590,10 @@ color:white;
 }
 
 .form-step-wrap input[type=text]::placeholder{
-  color:blue
+  color:#00C1C1;
+  font-size: 1em;
+  font-weight: 200;
+
 }
 
 .sig{
@@ -10613,7 +10617,9 @@ color:white;
 
 .botones{
   list-style:none;
-  padding:0px
+  padding:0px;
+  float:left;
+  width:100%
 }
 
 .botones li {
@@ -10634,5 +10640,127 @@ color:white;
 }
 
 .step-count{
-  font-size:3em
+  font-size:4.5em;
+  margin-top: 10% !important;
+  font-family: Saira;
+  font-weight: 50;
 }
+
+.terminos-input{
+  padding-left:20%
+}
+
+.form-control-c{
+  width: 25px;
+height: 25px;
+border: 1px solid #CCC;
+margin-right: 10px;
+border-radius: 5px;
+}
+
+
+.botones h2 {
+  color:white
+}
+
+
+.alfrente{
+  z-index:9999
+}
+
+.finalizarbt{
+  background-color:#228CA5;
+  height:72px;
+  width:72px;
+  border-radius:50%;
+  border:0px;
+  position:absolute;
+  top:-15px;
+  color:white
+}
+
+.nav-fin{
+  list-style:none;
+  padding:0px;
+  float:right
+}
+
+.nav-fin li{
+  float:left
+}
+
+.finish-text{
+  
+}
+
+.sig-text{
+  width:75%!important
+}
+
+.container-menu-left{
+width: 50%;
+float: left;
+}
+
+.container-menu-right{
+  width: 50%;
+  float: right;
+  text-align: right;
+  margin-right: 15%;
+}
+
+.finish_menu{
+  list-style: none;
+  padding: 0px;
+}
+
+.transparent-input{
+  background-color:transparent !important;
+  border:none !important;
+  padding: 0px !important;
+  border-bottom: 3px solid white !important;
+  width: 75%;
+  color:#00C1C1 !important;
+  font-size: 3em;
+  height: 50px;
+  font-weight: 200;
+}
+
+.transparent-input1{
+  background-color:transparent !important;
+  border:none !important;
+  padding: 0px !important;
+  border-bottom: 3px solid white !important;
+  width: 100%;
+  color:#00C1C1 !important;
+  font-size: 2em;
+  height: 50px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.btns{
+  margin-top: 10%;
+  border-radius: 10%;
+  margin-right: 20%;
+  border: 6px solid #72C67D;
+  font-family: Saira;
+  margin-left: 40%;
+  background-color: #72C67D;
+  color: white;
+   }
+
+   .separador{
+     height:25px;
+   }
+
+   .separador a{
+     margin-top: 15px;
+     font-size: 1.5em;
+   }
+
+   .stepp{
+    right: 0;
+    opacity: 1;
+    margin-top:-8%
+   }

@@ -2,59 +2,194 @@ import React, { useEffect, useState } from 'react'
 import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
+import "@fontsource/saira"; // Defaults to weight 400.
+
 const Wizard = props => {
 const [stepActual,setStep] = useState(1)
+const [error_v, setError_v] = useState(null)
+
+
+const register = ()=> {
+  window.jQuery(($)=>{
+  $("#step-"+7).attr("data-anim","hide-to--left").removeClass('alfrente');
+  $('#'+8).attr("data-anim","show-from--right").addClass('alfrente');
+ })
+
+}
+
+const _next_step = () =>{
+    window.jQuery(($)=>{
+    if(stepActual <= 7){
+      var nextStep = $("#step-"+stepActual).data("nextStep")
+      console.log("actual ","#step-"+stepActual)
+      console.log("next ",nextStep)
+      
+      
+
+      if(stepActual > 1 && $("#step-"+stepActual+' input').val() == ''){
+    //   alert($("#step-"+stepActual+' input').val())
+      
+    
+    setError_v("Este campo es requerido!")
+
+      }else{
+
+        if(stepActual == 2 ){
+          var inputD = $("#step-"+stepActual+' input').val()
+          console.log("tam ",inputD.length)
+          //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+        
+          if (inputD.length < 10 ) {
+            setError_v("Este campo debe tener almenos 10 caracteres!")
+            return false
+  
+          }
+  
+      }
+
+      if(stepActual == 3 ){
+        var inputD = $("#step-"+stepActual+' input').val()
+        console.log("tam ",inputD.length)
+        //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+      
+        if (inputD.length < 10 ) {
+          setError_v("Este campo debe tener almenos 10 caracteres!")
+          return false
+
+        }
+
+    }
+    
+      
+      if(stepActual == 4 ){
+        const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+        //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+        if (!emailRegex.test($("#step-"+stepActual+' input').val())) {
+          setError_v("Ingrese un email válido!")
+          return false
+        }
+      }
+      
+      if(stepActual == 5 ){
+        var valoresAceptados = /^[0-9]+$/;
+        var inputD = $("#step-"+stepActual+' input').val()
+        console.log("tam ",inputD.length)
+        //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+        if (!$("#step-"+stepActual+' input').val().match(valoresAceptados)  ) {
+         
+          setError_v("Ingrese un numero celular válido!")
+          return false
+        }
+      
+        if (inputD.length != 10  ) {
+          setError_v("El numero de celular debe tener 10 digitos!")
+          return false
+
+        }
+
+    }
+
+    if(stepActual == 6 ){
+      var valoresAceptados = /^[0-9]+$/;
+      var inputD = $("#step-"+stepActual+' input').val()
+      console.log("tam ",inputD.length)
+      //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+      if (!$("#step-"+stepActual+' input').val().match(valoresAceptados)  ) {
+       
+        setError_v("Ingrese un código válido!")
+        return false
+      }
+    
+      if (inputD.length != 4  ) {
+        setError_v("El numero de código debe tener 4 digitos!")
+        return false
+
+      }
+
+  }
+        
+      $("#step-"+stepActual).attr("data-anim","hide-to--left").removeClass('alfrente');
+      $('#'+nextStep).attr("data-anim","show-from--right").addClass('alfrente');
+      var stepx = stepActual 
+      setError_v(null)
+      stepx += 1
+      console.log(stepx)
+      setStep(stepx)
+
+      }
+     
+    }
+})
+
+  }
+
+  const _back_step = () =>{
+
+    
+    console.log("b ",stepActual)
+    window.jQuery(($)=>{
+    if(stepActual >= 1){
+    
+      var backTo = $("#step-"+stepActual).data("backTo")
+      console.log("actual ","#step-"+stepActual)
+      console.log("next ",backTo)
+     
+   
+      $("#step-"+stepActual).attr("data-anim","hide-to--left").removeClass('alfrente');;
+      $('#'+backTo).attr("data-anim","show-from--right").removeClass('alfrente');;
+      setError_v(null)
+      var stepx = stepActual 
+      stepx -= 1 
+      console.log(stepx)
+      setStep(stepx)
+     
+      
+  }
+  })
+}
+
 
   useEffect(()=>{
-
-  window.jQuery(($)=>{
-    //Dynamic Next
-  $(".btn-next").on("click", function(){
-    var nextStep = $("#" + $(this).parents(".slider-step").data("nextStep"));
-    $(this).parents(".slider-step").attr("data-anim","hide-to--left");
-    nextStep.attr("data-anim","show-from--right");
-  });
+//     var step_n = 1
+//   window.jQuery(($)=>{
+//     $(".btn-nextq").on("click", function(){
+//       if(step_n <= 7){
+//           var nextStep = $("#step-"+step_n).data("nextStep")
+//           console.log("actual ","#step-"+step_n)
+//           console.log("next ",nextStep)
+//           $("#step-"+step_n).attr("data-anim","hide-to--left");
+//           $('#'+nextStep).attr("data-anim","show-from--right");
+//      alert($("#step-"+step_n+' input').val())
+       
+//          step_n += 1
+//         console.log(step_n)
+//         setStep(step_n)
+//       }
+//         });
+//   //Dynamic Back
+//   $(".btn-backq").on("click", function(){
+//       console.log("b ",step_n)
+    
+//     if(step_n >= 2){
+//       var backTo = $("#step-"+step_n).data("backTo")
+//       console.log("actual ","#step-"+step_n)
+//       console.log("next ",backTo)
+//       $("#step-"+step_n).attr("data-anim","hide-to--left");
+//       $('#'+backTo).attr("data-anim","show-from--right");
+ 
   
-  //Dynamic Back
-  $(".btn-back").on("click", function(){
-    var backTo = $("#" + $(this).parents(".slider-step").data("backTo"));
+     
+//      step_n -= 1
+//       console.log(step_n)
+//       setStep(step_n)
+//       }
+    
+//   });
 
-    $(this).parents(".slider-step").attr("data-anim","hide-to--right");
-    backTo.attr("data-anim","show-from--left");
-  });
-
-})
+// })
 },[]);
 
   
-
-  if (props.currentStep !== 1) {
-    window.jQuery(($)=>{
-
-      $('.parent-box').addClass('move-right');
-     
-     
-      setTimeout(function(){
-        return null;
-        
-        },5000)
-
-      
-    })  
-    
-    
-  
-  
-  }else{
-    window.jQuery(($)=>{
-      $('.parent-box').addClass('move-right');
-     
-     
-    })  
-    
-
-
-  }
 
   return (
     
@@ -68,16 +203,16 @@ const [stepActual,setStep] = useState(1)
           <div className="col-md-8 col-sm-8 col-xs-8"></div>
           <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3 className="step-count">{stepActual}</h3></div>
       </div>
-          <div id="step1box" className="slider-step first-step step" data-next-step="step-mortgage-balance">
+          <div id="step-1" className="slider-step first-step step" data-next-step="step-2">
             <div className="row tall step1">
 
               <div className="col-xs-12 form-questions">
                 <div className="row">
-                <p className="text-step" >Estamos contentos que quieras hacer parte de nuestra familia Neggo y por ello, queremos conocerte mejor,
+                <p className="text-step" style={{ fontFamily: "Saira"}}>Estamos contentos que quieras hacer parte de nuestra familia Neggo y por ello, queremos conocerte mejor,
                   a continuacion te vamos hacer algunas preguntas para que podamos reconocerte en nuestra plataforma...
                  </p>
-                <p className="text-step">Son tan solo 5 preguntas :D</p>    
-                <p className="text-step">Si en algún punto no quieres continuar con el proceso de registro puedes hacerlo con la tecla esc</p>
+                <p className="text-step" style={{ fontFamily: "Saira"}}>Son tan solo 5 preguntas :D</p>    
+                <p className="text-step" style={{ fontFamily: "Saira"}}>Si en algún punto no quieres continuar con el proceso de registro puedes hacerlo con la tecla esc</p>
                 </div>
 
               </div>
@@ -88,132 +223,171 @@ const [stepActual,setStep] = useState(1)
           </div>
           {/* <!-- Upper Text --> */}
 
-          <div id="step-mortgage-balance" className="slider-step step sig" data-next-step="step-home-value" data-back-to="step1box">
+          <div id="step-2" className="slider-step step sig" data-next-step="step-3" data-back-to="step-1">
             <div className="row step2">
               <div className="col-xs-12  ">
-              <h5 className="text-step" style={{color: 'white'}} >Cúales son tus nombres?</h5>
+              <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}} >Cúales son tus nombres?</h5>
 
-                <input
-                className="form-control"
+                <input 
+                className="form-control transparent-input"
+                style={{fontFamily: "Saira"}}
                 placeholder="Primer y segundo nombre"
                 type="text"
+                minLength= "20"
                 />
+                <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
               </div>
             </div>
             
           </div>
 
-          <div id="step-home-value" className="slider-step step sig" data-next-step="step-email-rate" data-back-to="step-mortgage-balance">
+          <div id="step-3" className="slider-step step sig" data-next-step="step-4" data-back-to="step-2">
 
 
             <div className="row step3">
               <div className="col-xs-12  ">
-              <h5 className="text-step" style={{color: 'white'}}>Cúales son tus apellidos?</h5>
+              <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Cúales son tus apellidos?</h5>
 
                 <input
-                className="form-control"
+                className="form-control transparent-input"
+                style={{fontFamily: "Saira"}}
                 placeholder="Primer y segundo apellido"
                 type="text"
+                minLength= "20"
                 />
+                <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
               </div>
             </div>
             
           </div>
     
-          <div id="step-email-rate" className="slider-step step sig" data-next-step="step-telefono-buy-process" data-back-to="step-home-value">
+          <div id="step-4" className="slider-step step sig" data-next-step="step-5" data-back-to="step-3">
           
 
             <div className="row step4">
               <div className="col-xs-12  ">
-              <h5 className="text-step" style={{color: 'white'}}>Cúal es tu correo electrónico?</h5>
+              <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Cúal es tu correo electrónico?</h5>
 
                 <input
-                className="form-control"
+                className="form-control transparent-input"
+                style={{fontFamily: "Saira"}}
                 placeholder="Correo@correo.com.co"
-                type="email"
+                type="text"
                 />
+                <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
               </div>
             </div>
            
           </div>
          
-          <div id="step-telefono-buy-process" className="slider-step step sig" data-next-step="step-password-process" data-back-to="step-email-rate">
+          <div id="step-5" className="slider-step step sig" data-next-step="step-6" data-back-to="step-4">
          
 
           <div className="row step5">
             <div className="col-xs-12 ">
-            <h5 className="text-step" style={{color: 'white'}}>Un número de contacto?</h5>
-            <p className="text-step">Ten en cuenta que este será tu usuario.</p>
+            <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Un número de contacto?</h5>
+            <p className="text-step" style={{fontFamily: "Saira"}}>Ten en cuenta que este será tu usuario.</p>
 
                 <input
-                className="form-control"
+                className="form-control transparent-input"
+                style={{fontFamily: "Saira"}}
                 placeholder="+57 300 000 000"
-                type="number"
+                type="text"
+                minLength= "10"
+                maxLength= "10"
                 />
-
+              <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-xs-12">
-              <input id="next-home-buy-process" type='button' value='Continue' tabindex="11" className="btn-success form-control btn-next" />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-xs-12">
-              <a id="back-home-buy-process" className="btn-back">back</a>
-            </div>
-          </div>
+       
         </div>
 
-        <div id="step-password-process" className="slider-step step sig" data-next-step="step-end-process" data-back-to="step-telefono-buy-process">
+        <div id="step-6" className="slider-step step sig" data-next-step="step-7" data-back-to="step-5">
          
 
          <div className="row step6">
            <div className="col-xs-12 ">
-           <h5 className="text-step" style={{color: 'white'}}>Escribe tu clave de acceso</h5>
-           <p className="text-step">4 digitos numéricos</p>
+           <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Escribe tu clave de acceso</h5>
+           <p className="text-step" style={{fontFamily: "Saira"}}>4 digitos numéricos</p>
 
                <input
-               className="form-control"
+               className="form-control transparent-input"
+               style={{fontFamily: "Saira"}}
                placeholder="####"
-               type="number"
+               type="text"
+               minLength= "4"
+               maxLength= "4"
                />
-
+              <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
            </div>
          </div>
          
        </div>
 
-       <div id="step-end-process" className="slider-step step last" data-back-to="step-password-process">
+       <div id="step-7" className="slider-step step sig" data-next-step="step-8" data-back-to="step-6">
          
 
          <div className="row step7">
            <div className="col-xs-12 ">
-           <h3 className="text-step" style={{color: 'white'}}>Genial!!</h3>
+           <h3 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Genial!!</h3>
 
-           <p className="text-step">
+     
+           <p className="text-step" style={{fontFamily: "Saira"}}>
             Para terminar, acepta nuestras condiciones de servicio y privacidad
           </p>
+     
+     <div className="terminos-input">
          <input
           type="checkbox" 
-          name="checkbox1"     
+          name="checkbox1"
+          className="form-control-c"     
         />
-     <span className="text-step">Acepto terminos y condiciones de Neggo</span>
-     <br/>
+        
+     <span className="text-step"   style={{fontFamily: "Saira"}}>Acepto terminos y condiciones de Neggo</span>
+     <br/><br/>
+    
      <input
         type="checkbox" 
-        name="checkbox2"     
+        name="checkbox2"
+        className="form-control-c"     
       />
-     <span className="text-step">Acepto el trataminto de datos personales</span>
-     
-      <p className="text-step mov">Sabemos que no eres un robot, pero por si acaso...</p>    
-      <p>captcha</p>
+     <span className="text-step"   style={{fontFamily: "Saira"}}>Acepto el trataminto de datos personales</span>
+     </div>
+     <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
+      {/* <p className="text-step mov">Sabemos que no eres un robot, pero por si acaso...</p>    
+      <p>captcha</p> */}
            </div>
          </div>
         
        </div>
+       
+       <div id="step-8" className="slider-step step last" data-back-to="step-7">
+         
+       <div className="row tall">
+            <div className="col-md-4 none-xs none-xs">
 
+            </div>
+
+              <div className="col-xs-12 col-sm-12  form-questions col-md-4 ">
+                <div className="row">
+                <h5 className="text-step" style={{color: 'white', textAlign: 'center', fontFamily: "Saira"}} >Bienvenido a la familia Neggo!!</h5>
+                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>:D</p>
+                </div>
+               
+
+              </div>
+
+              <div className="col-md-4 none-xs none-xs">
+
+              </div>
+              {/* <!-- /Form Questions --> */}
+            </div>
+        
+       </div>
+        
+        
         <div className="clear"></div>
+        
       </div>
      
     </div>
@@ -221,20 +395,51 @@ const [stepActual,setStep] = useState(1)
   
   <div className="btn-c">
   <ul className="botones">
-    <li>
-{/*           
- <input id="next-home-buy-process" type='button' value='Continue' tabindex="11" className="btn-success form-control btn-next" />
-           */}
+  <li>
+  {stepActual >= 2 && (   
+       
+         <a id="back-home-buy-process" className="btn-backx" onClick={_back_step}><img className="" src={backbt}/></a>
 
-           <a id="next-home-buy-process" className="btn-back"><img className="" src={backbt}/></a>
+         
+     )}
+ </li>
 
-         </li>
-         <li>
+      <li>
+          {stepActual <= 6 && (   
+            
+       
+             <a id="next-home-buy-process" className="btn-nextx" onClick={_next_step}><img className="img-responsive " src={nextbt}/></a>
            
-             <a id="back-home-buy-process" className=" btn-next"><img className="img-responsive " src={nextbt}/></a>
+         
+         )}
+      </li>
+
+       <li className="sig-text">
+         {stepActual > 1 && stepActual < 6 && (   
+          
+       
+       <h2 style={{fontFamily: "Saira"}}>Siguiente</h2>
+      
+  
+         )}
+      </li>
+
+      <li className="sig-text">
+         {stepActual == 1 && (   
            
-         </li>
+       
+            <h2 style={{fontFamily: "Saira"}}>Empecemos</h2>
+           
+        
+         )}
+      </li>  
+        
+         {stepActual == 7 && (<li className="finish-text" ><h2 style={{fontFamily: "Saira"}}>Finalizar</h2></li>)}
+         {stepActual == 7 && (<li className="finish-btn"><h2><button type="button" className="finalizarbt" onClick={register}>-></button></h2></li>)}
+
+
   </ul>
+  
   </div>
   </div>
   

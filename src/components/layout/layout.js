@@ -9,7 +9,7 @@ export default function PageLayout(props) {
 
 <div className="page-wrapper">
 
-    <Navbar/>
+   
 
     <div key="xx2" >{props.children}</div>
 
