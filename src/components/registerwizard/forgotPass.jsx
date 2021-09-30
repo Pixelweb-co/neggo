@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
-const Wizard = props => {
+const ForgotPassword = props => {
   const [stepActual,setStep] = useState(1)
   const [error_v, setError_v] = useState(null)
   
@@ -534,4 +534,4 @@ const Wizard = props => {
   };
 
 
-export default Wizard  ;
+export default ForgotPassword  ;

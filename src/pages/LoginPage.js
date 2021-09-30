@@ -3,7 +3,7 @@ import Layout from '../components/layout/layout';
 import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from 'react-hook-form'
-import LoginComponent from '../components/registerwizard/forgotPass'
+import LoginComponent from '../components/registerwizard/loginForm'
 
 
 

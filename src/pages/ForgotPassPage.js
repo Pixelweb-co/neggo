@@ -3,7 +3,7 @@ import Layout from '../components/layout/layoutForm';
 import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from 'react-hook-form'
-import ForgotpassComponent from '../components/registerwizard/forgotPass'
+import ForgotPassword from '../components/registerwizard/forgotPass'
 
 
 
@@ -13,7 +13,7 @@ export default function Login() {
 
     <Layout>
       
-     <ForgotpassComponent/>
+     <ForgotPassword/>
     
     </Layout>
  
