@@ -2,16 +2,67 @@ import React, { useEffect, useState } from 'react'
 import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
+import axios from 'axios';
+import AuthManager from '../../helpers/AuthManager'
 import "@fontsource/saira"; // Defaults to weight 400.
+import { useForm, ErrorMessage } from 'react-hook-form'
+import { Link, useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import env from "react-dotenv";
+
 const Wizard = props => {
   const [stepActual,setStep] = useState(1)
   const [error_v, setError_v] = useState(null)
 
+  const { register, errors, handleSubmit } = useForm()
+  const [authError, setAuthError] = useState(null)
+  const isLoading = useSelector((state) => state.loading)
+  
+  
 
-  const register = ()=> {
+  let history = useHistory()
+  //console.log('entry to login form')
+
+  const login = ()=> {
     window.jQuery(($)=>{
-    $("#step-"+7).attr("data-anim","hide-to--left").removeClass('alfrente');
-    $('#'+8).attr("data-anim","show-from--right").addClass('alfrente');
+
+      var form = new FormData();
+
+      form.append('user',$('#step-1 input').val())
+      form.append('password',$('#step-2 input').val())
+
+      axios.defaults.baseURL = process.env.REACT_APP_API_URL
+
+    axios
+      .post('/api/auth/login', form)
+      .then((response) => {
+     
+        if(response.data.user_data){
+
+        // if (response.data.user_data.approved === '0') {
+        //   setAuthError([`Your account hasn't been approved.`])
+        // } else {
+        //   AuthManager.setToken(response.headers, response.data.user_data)
+        //   history.push('/dashboard/')
+        // }
+          
+
+        AuthManager.setToken(response.headers, response.data.user_data)
+        history.push('/dashboard/')
+
+      }else{
+        setAuthError([response.data.message])
+      }
+
+
+      })
+      .catch((error) => {
+        if (error.response) {
+          //console.log(error.response.data)
+          setAuthError(error.response.data.errors)
+        }
+      })
+
    })
   
   }
@@ -198,13 +249,13 @@ const _back_step = () =>{
                 <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Contraseña</p>
                 <input
                 className="form-control transparent-input1"
-                type="text"
+                type="password"
                 />
                 </div>
                 <div className="separador">
                
                 </div>
-                <button type="button" className=" btn-success btns " style={{fontFamily: "Saira"}}>Ingresar</button>
+                <button type="button" className=" btn-success btns " onClick={login} style={{fontFamily: "Saira"}}>Ingresar</button>
                 
               </div>
 
