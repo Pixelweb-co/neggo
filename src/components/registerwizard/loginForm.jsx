@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
+import "@fontsource/saira"; // Defaults to weight 400.
 import axios from 'axios';
 import AuthManager from '../../helpers/AuthManager'
-import "@fontsource/saira"; // Defaults to weight 400.
 import { useForm, ErrorMessage } from 'react-hook-form'
 import { Link, useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';

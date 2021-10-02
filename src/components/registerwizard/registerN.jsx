@@ -3,19 +3,75 @@ import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
 import "@fontsource/saira"; // Defaults to weight 400.
+import { Link, useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+import AuthManager from '../../helpers/AuthManager'
+import { useForm, ErrorMessage } from 'react-hook-form'
+
 
 const Wizard = props => {
-const [stepActual,setStep] = useState(1)
-const [error_v, setError_v] = useState(null)
+  const [stepActual,setStep] = useState(1)
+  const [error_v, setError_v] = useState(null)
+
+  const { register, errors, handleSubmit } = useForm()
+  const [authError, setAuthError] = useState(null)
+  const isLoading = useSelector((state) => state.loading)
+  
+  
+
+  let history = useHistory()
+  //console.log('entry to login form')
+
+  const registerr = ()=> {
+    window.jQuery(($)=>{
+
+      var form = new FormData();
+
+      form.append('names',$('#step-2 input').val())
+      form.append('lastname',$('#step-3 input').val())
+      form.append('email',$('#step-4 input').val())
+      form.append('numcontact',$('#step-5 input').val())
+      form.append('code',$('#step-6 input').val())
+      // form.append('checkbox1',$('#step-7 input').val())
+      // form.append('checkbox2',$('#step-7 input').val())
+    
+
+      axios.defaults.baseURL = process.env.REACT_APP_API_URL
+
+    axios
+      .post('/api/auth/register', form)
+      .then((response) => {
+     
+        if(response.data.user_data){
+
+        // if (response.data.user_data.approved === '0') {
+        //   setAuthError([`Your account hasn't been approved.`])
+        // } else {
+        //   AuthManager.setToken(response.headers, response.data.user_data)
+        //   history.push('/dashboard/')
+        // }
+          
+
+        AuthManager.setToken(response.headers, response.data.user_data)
+        history.push('/dashboard/')
+
+      }else{
+        setAuthError([response.data.message])
+      }
 
 
-const register = ()=> {
-  window.jQuery(($)=>{
-  $("#step-"+7).attr("data-anim","hide-to--left").removeClass('alfrente');
-  $('#'+8).attr("data-anim","show-from--right").addClass('alfrente');
- })
+      })
+      .catch((error) => {
+        if (error.response) {
+          //console.log(error.response.data)
+          setAuthError(error.response.data.errors)
+        }
+      })
 
-}
+   })
+  
+  }
 
 const _next_step = () =>{
     window.jQuery(($)=>{
@@ -234,6 +290,7 @@ const _next_step = () =>{
                 placeholder="Primer y segundo nombre"
                 type="text"
                 minLength= "20"
+                name= "names"
                 />
                 <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
               </div>
@@ -254,6 +311,7 @@ const _next_step = () =>{
                 placeholder="Primer y segundo apellido"
                 type="text"
                 minLength= "20"
+                name= "lastname"
                 />
                 <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
               </div>
@@ -273,6 +331,7 @@ const _next_step = () =>{
                 style={{fontFamily: "Saira"}}
                 placeholder="Correo@correo.com.co"
                 type="text"
+                name= "email"
                 />
                 <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
               </div>
@@ -295,6 +354,7 @@ const _next_step = () =>{
                 type="text"
                 minLength= "10"
                 maxLength= "10"
+                name= "numcontact"
                 />
               <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
             </div>
@@ -317,6 +377,7 @@ const _next_step = () =>{
                type="text"
                minLength= "4"
                maxLength= "4"
+               name= "code"
                />
               <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
            </div>
@@ -435,7 +496,7 @@ const _next_step = () =>{
       </li>  
         
          {stepActual == 7 && (<li className="finish-text" ><h2 style={{fontFamily: "Saira"}}>Finalizar</h2></li>)}
-         {stepActual == 7 && (<li className="finish-btn"><h2><button type="button" className="finalizarbt" onClick={register}>-></button></h2></li>)}
+         {stepActual == 7 && (<li className="finish-btn"><h2><button type="button" className="finalizarbt" onClick={registerr}>-></button></h2></li>)}
 
 
   </ul>

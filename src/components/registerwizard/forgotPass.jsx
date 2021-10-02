@@ -2,22 +2,77 @@ import React, { useEffect, useState } from 'react'
 import closebt from '../../assets/img/close.png'
 import backbt from '../../assets/img/back.png'
 import nextbt from '../../assets/img/next.png'
+import { Link, useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+import AuthManager from '../../helpers/AuthManager'
+import { useForm, ErrorMessage } from 'react-hook-form'
+
 const ForgotPassword = props => {
   const [stepActual,setStep] = useState(1)
   const [error_v, setError_v] = useState(null)
+
+  const { register, errors, handleSubmit } = useForm()
+  const [authError, setAuthError] = useState(null)
+  const isLoading = useSelector((state) => state.loading)
   
   
-  const register = ()=> {
+
+  let history = useHistory()
+  //console.log('entry to login form')
+
+  const forgotPass = ()=> {
     window.jQuery(($)=>{
-    $("#step-"+7).attr("data-anim","hide-to--left").removeClass('alfrente');
-    $('#'+8).attr("data-anim","show-from--right").addClass('alfrente');
+
+      var form = new FormData();
+
+      form.append('userDate',$('#step-1 input').val())
+      form.append('codValidate',$('#step-2 input').val())
+      form.append('codValidate2',$('#step-3 input').val())
+      form.append('password',$('#step-4 input').val())
+      // form.append('pass1',$('#step-5 input').val())
+      // form.append('pass2',$('#step-5 input').val())
+    
+
+      axios.defaults.baseURL = process.env.REACT_APP_API_URL
+
+    axios
+      .post('/api/auth/forgotPass', form)
+      .then((response) => {
+     
+        if(response.data.user_data){
+
+        // if (response.data.user_data.approved === '0') {
+        //   setAuthError([`Your account hasn't been approved.`])
+        // } else {
+        //   AuthManager.setToken(response.headers, response.data.user_data)
+        //   history.push('/dashboard/')
+        // }
+          
+
+        AuthManager.setToken(response.headers, response.data.user_data)
+        history.push('/dashboard/')
+
+      }else{
+        setAuthError([response.data.message])
+      }
+
+
+      })
+      .catch((error) => {
+        if (error.response) {
+          //console.log(error.response.data)
+          setAuthError(error.response.data.errors)
+        }
+      })
+
    })
   
   }
   
   const _next_step = () =>{
       window.jQuery(($)=>{
-      if(stepActual <= 7){
+      if(stepActual <= 5){
         var nextStep = $("#step-"+stepActual).data("nextStep")
         console.log("actual ","#step-"+stepActual)
         console.log("next ",nextStep)
@@ -275,6 +330,7 @@ const ForgotPassword = props => {
                 className="form-control transparent-input1"
                 style={{fontFamily: "Saira"}}
                 type="text"
+                name="userDate"
                 />
                 </div>
                 <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
@@ -309,6 +365,7 @@ const ForgotPassword = props => {
                 className="form-control transparent-input1"
                 style={{fontFamily: "Saira"}}
                 type="text"
+                name="codValidate"
                   />
                   </div>
                   <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
@@ -333,6 +390,7 @@ const ForgotPassword = props => {
                   className="form-control transparent-input1"
                   style={{fontFamily: "Saira"}}
                   type="text"
+                  name="codValidate2"
                   />
                   <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
                 </div>
@@ -352,13 +410,16 @@ const ForgotPassword = props => {
                   className="form-control transparent-input1"
                   style={{fontFamily: "Saira"}}
                   type="text"
+                  name="pass1"
                   />
                   <p className="text-step mt-3" style={{textAlign: 'center', fontFamily: "Saira"}}>Escribe nuevamente la nueva clave</p>
                   <input
                   className="form-control transparent-input1"
                   style={{fontFamily: "Saira"}}
                   type="text"
+                  name="pass2"
                   />
+                 <button type="button" onClick={forgotPass} className="btn btn-success btns">Recuperar</button>
                   <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
                 </div>
               </div>
