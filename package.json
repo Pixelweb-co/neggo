@@ -19,6 +19,7 @@
     "devextreme": "21.1.5",
     "devextreme-react": "21.1.5",
     "dotenv": "^8.2.0",
+    "html-webpack-plugin": "^5.3.2",
     "joi": "^17.4.1",
     "joi-validation-strategy": "^0.3.3",
     "jquery": "^3.6.0",
@@ -71,5 +72,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "html-webpack-cdn-plugin": "^0.2.0"
   }
 }
