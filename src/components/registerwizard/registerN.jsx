@@ -54,7 +54,7 @@ const Wizard = props => {
           
 
         AuthManager.setToken(response.headers, response.data.user_data)
-        history.push('/dashboard/')
+        history.push('/')
 
       }else{
         setAuthError([response.data.message])

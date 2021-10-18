@@ -7,19 +7,106 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import AuthManager from '../../helpers/AuthManager'
 import { useForm, ErrorMessage } from 'react-hook-form'
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 const ForgotPassword = props => {
   const [stepActual,setStep] = useState(1)
   const [error_v, setError_v] = useState(null)
+  const [error_v1, setError_v1] = useState(null)
+  const [confirmSuccess, setConfirmC] = useState(false)
 
   const { register, errors, handleSubmit } = useForm()
   const [authError, setAuthError] = useState(null)
   const isLoading = useSelector((state) => state.loading)
+
+  const [paswordR, setpws] = useState('')
+  const [codeP, setCode] = useState('')
+  const wordsScore = ['Insegura', 'Leve', 'Regular', 'Buena', 'Segura']
+  const [score, changeScore] = useState(null)
   
   
 
   let history = useHistory()
-  //console.log('entry to login form')
+
+
+  const showPws = (e)=> {
+    var x = e.target;
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
+
+  const confirm_code =  (code) => {
+    var formc = new FormData();
+
+    formc.append('code',code)
+     axios.defaults.baseURL = process.env.REACT_APP_API_URL
+
+     axios
+    .post('/api/auth/forgot-password-sms-confirm', formc)
+    .then((response) => {
+   
+    if(response.data.result=='success'){
+      setConfirmC(true)
+      return true  
+      
+
+    }else{
+      setConfirmC(false)
+     return false
+    }
+
+
+    })
+    .catch((error) => {
+      if (error.response) {
+        setError_v("Error interno!")
+        setConfirmC(false)
+            return false
+      }
+    })
+    
+  }
+
+
+  const validate_code = () =>{
+window.jQuery(($)=>{
+
+ const celular = $('[name=celular]').val()
+var formc = new FormData();
+
+      formc.append('data',celular)
+      axios.defaults.baseURL = process.env.REACT_APP_API_URL
+
+    axios
+      .post('/api/auth/forgot-password-sms', formc)
+      .then((response) => {
+     
+      if(response.data.result=='success'){
+
+        
+        
+
+      }else{
+        setAuthError([response.data.message])
+      }
+
+
+      })
+      .catch((error) => {
+        if (error.response) {
+          //console.log(error.response.data)
+          setAuthError(error.response.data.errors)
+        }
+      })
+
+
+})
+  }
+
 
   const forgotPass = ()=> {
     window.jQuery(($)=>{
@@ -30,28 +117,19 @@ const ForgotPassword = props => {
       form.append('codValidate',$('#step-2 input').val())
       form.append('codValidate2',$('#step-3 input').val())
       form.append('password',$('#step-4 input').val())
-      // form.append('pass1',$('#step-5 input').val())
-      // form.append('pass2',$('#step-5 input').val())
+     
     
 
       axios.defaults.baseURL = process.env.REACT_APP_API_URL
 
     axios
-      .post('/api/auth/forgotPass', form)
+      .post('/api/auth/forgot-password', form)
       .then((response) => {
      
-        if(response.data.user_data){
+        if(response.data.result=='success'){
 
-        // if (response.data.user_data.approved === '0') {
-        //   setAuthError([`Your account hasn't been approved.`])
-        // } else {
-        //   AuthManager.setToken(response.headers, response.data.user_data)
-        //   history.push('/dashboard/')
-        // }
-          
-
-        AuthManager.setToken(response.headers, response.data.user_data)
-        history.push('/dashboard/')
+        
+        history.push('/login')
 
       }else{
         setAuthError([response.data.message])
@@ -70,9 +148,9 @@ const ForgotPassword = props => {
   
   }
   
-  const _next_step = () =>{
-      window.jQuery(($)=>{
-      if(stepActual <= 5){
+  const _next_step =  () =>{
+      window.jQuery(async($)=>{
+      if(stepActual <= 4){
         var nextStep = $("#step-"+stepActual).data("nextStep")
         console.log("actual ","#step-"+stepActual)
         console.log("next ",nextStep)
@@ -136,6 +214,7 @@ const ForgotPassword = props => {
 
   
         if(stepActual == 2 ){
+          
           var valoresAceptados = /^[0-9]+$/;
           var inputD = $("#step-"+stepActual+' input').val()
           console.log("tam ",inputD.length)
@@ -150,84 +229,149 @@ const ForgotPassword = props => {
             setError_v("El numero de código debe tener 4 digitos!")
             return false
     
-          }
+          }  
+
+          setCode(inputD)
+          
+       
+         
     
       }
-  
+      console.log("stAct ",stepActual)
       if(stepActual == 3 ){
-        var valoresAceptados = /^[0-9]+$/;
-        var inputD = $("#step-"+stepActual+' input').val()
-        console.log("tam ",inputD.length)
-        //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-        if (!$("#step-"+stepActual+' input').val().match(valoresAceptados)  ) {
-         
-          setError_v("Ingrese un código válido!")
+
+        console.log("valida 3")
+        
+        
+        if(score < 3){
+          console.log("erorr score")
+          setError_v("Debes escojer una contraseña mas segura!")
           return false
+
         }
+
+        if(paswordR != $('[name=retype_password]').val()){
+          console.log("erorr mitsmach")
+          setError_v1("Debes confirmar tu nueva contraseña!")
+          return false
+
+        }
+
+        
+        var formc = new FormData();
       
-        if (inputD.length != 4  ) {
-          setError_v("El numero de código debe tener 4 digitos!")
-          return false
-  
+        formc.append('newpass',paswordR)
+        formc.append('code',codeP)
+         axios.defaults.baseURL = process.env.REACT_APP_API_URL
+    
+        await axios
+        .post('/api/auth/set_password', formc)
+        .then((response) => {
+    
+          console.log("response api")
+         
+        if(response.data.result=='success'){
+    
+           console.log('change sucess ')
+    
+          // setConfirmC(true)
+           $("#step-3").attr("data-anim","hide-to--left").removeClass('alfrente');
+           $("#step-4").attr("data-anim","show-from--right").addClass('alfrente');
+           setStep(stepx)
+           return true  
+          
+    
+        }else{
+          //setConfirmC(false)
+        
+         return false
         }
+    
+    
+        })
+        .catch((error) => {
+          if (error.response) {
+            setError_v("Error interno!")
+           // setConfirmC(false)
+                return false
+          }
+        })
+    
   
     }
       
         
         if(stepActual == 4 ){
-          const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-          //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-          if (!emailRegex.test($("#step-"+stepActual+' input').val())) {
-            setError_v("Ingrese un email válido!")
-            return false
-          }
+         console.log("in step 4")
         }
         
-        if(stepActual == 5 ){
-          var valoresAceptados = /^[0-9]+$/;
-          var inputD = $("#step-"+stepActual+' input').val()
-          console.log("tam ",inputD.length)
-          //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-          if (!$("#step-"+stepActual+' input').val().match(valoresAceptados)  ) {
-           
-            setError_v("Ingrese un numero celular válido!")
-            return false
-          }
-        
-          if (inputD.length != 10  ) {
-            setError_v("El numero de celular debe tener 10 digitos!")
-            return false
-  
-          }
-  
-      }
-  
-      if(stepActual == 6 ){
-        var valoresAceptados = /^[0-9]+$/;
-        var inputD = $("#step-"+stepActual+' input').val()
-        console.log("tam ",inputD.length)
-        //Se muestra un texto a modo de ejemplo, luego va a ser un icono
-        if (!$("#step-"+stepActual+' input').val().match(valoresAceptados)  ) {
-         
-          setError_v("Ingrese un código válido!")
-          return false
-        }
       
-        if (inputD.length != 4  ) {
-          setError_v("El numero de código debe tener 4 digitos!")
-          return false
-  
-        }
-  
-    }
+
           
-        $("#step-"+stepActual).attr("data-anim","hide-to--left").removeClass('alfrente');
-        $('#'+nextStep).attr("data-anim","show-from--right").addClass('alfrente');
+       
         var stepx = stepActual 
+
+
         setError_v(null)
+        setError_v1(null)
         stepx += 1
-        console.log(stepx)
-        setStep(stepx)
+        console.log('Stepx ',stepx)
+        if(stepx==2){
+            validate_code()
+            $("#step-"+stepActual).attr("data-anim","hide-to--left").removeClass('alfrente');
+            $('#'+nextStep).attr("data-anim","show-from--right").addClass('alfrente');
+            setStep(stepx)
+        }
+
+        if(stepx==3){
+          console.log("confirm paso 3")
+          
+          var formc = new FormData();
+      
+          formc.append('code',inputD)
+           axios.defaults.baseURL = process.env.REACT_APP_API_URL
+      
+          await axios
+          .post('/api/auth/forgot-password-sms-confirm', formc)
+          .then((response) => {
+      
+            console.log("response api")
+           
+          if(response.data.result=='success'){
+      
+            console.log('stepx sucess ')
+      
+            setConfirmC(true)
+            $("#step-"+stepActual).attr("data-anim","hide-to--left").removeClass('alfrente');
+            $('#'+nextStep).attr("data-anim","show-from--right").addClass('alfrente');
+            setStep(stepx)
+            return true  
+            
+      
+          }else{
+            setConfirmC(false)
+          
+           return false
+          }
+      
+      
+          })
+          .catch((error) => {
+            if (error.response) {
+              setError_v("Error interno!")
+              setConfirmC(false)
+                  return false
+            }
+          })
+      
+             
+
+         }
+
+         if(stepx==4){
+              console.log("envio step4")
+         }
+        
   
         }
        
@@ -251,6 +395,7 @@ const ForgotPassword = props => {
         $("#step-"+stepActual).attr("data-anim","hide-to--left").removeClass('alfrente');;
         $('#'+backTo).attr("data-anim","show-from--right").removeClass('alfrente');;
         setError_v(null)
+        setError_v1(null)
         var stepx = stepActual 
         stepx -= 1 
         console.log(stepx)
@@ -261,45 +406,25 @@ const ForgotPassword = props => {
     })
   }
   
+  const setPv = (e) =>{
+    setError_v(null)
+    console.log(e.target.value)
+    setpws(e.target.value)
+  }
+
+
+  const setScore  = (score, feedback)=>{
+
+
+    console.log("scor ",score)
+    changeScore(score)
+
+
+
+  }
   
-    useEffect(()=>{
-  //     var step_n = 1
-  //   window.jQuery(($)=>{
-  //     $(".btn-nextq").on("click", function(){
-  //       if(step_n <= 7){
-  //           var nextStep = $("#step-"+step_n).data("nextStep")
-  //           console.log("actual ","#step-"+step_n)
-  //           console.log("next ",nextStep)
-  //           $("#step-"+step_n).attr("data-anim","hide-to--left");
-  //           $('#'+nextStep).attr("data-anim","show-from--right");
-  //      alert($("#step-"+step_n+' input').val())
-         
-  //          step_n += 1
-  //         console.log(step_n)
-  //         setStep(step_n)
-  //       }
-  //         });
-  //   //Dynamic Back
-  //   $(".btn-backq").on("click", function(){
-  //       console.log("b ",step_n)
-      
-  //     if(step_n >= 2){
-  //       var backTo = $("#step-"+step_n).data("backTo")
-  //       console.log("actual ","#step-"+step_n)
-  //       console.log("next ",backTo)
-  //       $("#step-"+step_n).attr("data-anim","hide-to--left");
-  //       $('#'+backTo).attr("data-anim","show-from--right");
-   
-    
-       
-  //      step_n -= 1
-  //       console.log(step_n)
-  //       setStep(step_n)
-  //       }
-      
-  //   });
-  
-  // })
+    useEffect(()=>{ 
+ 
   },[]);
   
     
@@ -312,7 +437,7 @@ const ForgotPassword = props => {
         {/* <!-- Offset --> */}
         <div className="form-step-wrap">
         <div id="toph" className="row">
-            <div className="col-md-2 col-sm-2 col-xs-2"><img className="img-responsive closeb-t" src={closebt}/></div>
+            <div className="col-md-2 col-sm-2 col-xs-2"><a href="/login"><img className="img-responsive closeb-t" src={closebt}/></a></div>
             <div className="col-md-8 col-sm-8 col-xs-8"></div>
             <div className="col-md-2 col-sm-2 col-xs-2" align="center"><h3 className="step-count">{stepActual}</h3></div>
         </div>
@@ -330,7 +455,7 @@ const ForgotPassword = props => {
                 className="form-control transparent-input1"
                 style={{fontFamily: "Saira"}}
                 type="text"
-                name="userDate"
+                name="celular"
                 />
                 </div>
                 <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
@@ -369,6 +494,10 @@ const ForgotPassword = props => {
                   />
                   </div>
                   <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
+                  <div className="error_g" style={{fontFamily: "Saira"}}><a href="#" onClick={()=>{
+                      validate_code()
+
+                  }}>Reenviar código</a></div>
                 </div>
                 <div className="col-md-3 none-xs none-xs">
 
@@ -383,16 +512,32 @@ const ForgotPassword = props => {
 
              </div>
                 <div className="col-xs-12 col-sm-12  form-questions col-md-6 ">
-                <h5 className="text-step" style={{color: 'white', textAlign: 'center', fontFamily: "Saira"}}>Recupera tu cuenta</h5>
-                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Válida el código que te hemos enviado</p>
+                <h5 className="text-step" style={{color: 'white', textAlign: 'center', fontFamily: "Saira"}}>Cambiar contraseña</h5>
+                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Ingresa una nueva contraseña</p>
   
                   <input
                   className="form-control transparent-input1"
                   style={{fontFamily: "Saira"}}
                   type="text"
-                  name="codValidate2"
+                  name="new_password"
+                  onKeyUp={(e)=>{setPv(e)}}
                   />
+
+                 
+
+                  <PasswordStrengthBar onChangeScore={setScore} shortScoreWord="Escribe algo" password={paswordR} scoreWords={wordsScore}/>
                   <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
+
+                  <br/><br/><br/>
+                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Confirma tu nueva contraseña</p>
+  
+                  <input
+                  className="form-control transparent-input1"
+                  style={{fontFamily: "Saira"}}
+                  type="text"
+                  name="retype_password"
+                  />
+                  <div className="error_g" style={{fontFamily: "Saira"}}>{error_v1}</div>
                 </div>
               </div>
               
@@ -405,22 +550,9 @@ const ForgotPassword = props => {
              </div>
                 <div className="col-xs-12 col-sm-12  form-questions col-md-6  ">
                 <h5 className="text-step" style={{color: 'white', textAlign: 'center', fontFamily: "Saira"}}>Recupera tu cuenta</h5>
-                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Escribe tu nueva clave de acceso</p>
-                  <input
-                  className="form-control transparent-input1"
-                  style={{fontFamily: "Saira"}}
-                  type="text"
-                  name="pass1"
-                  />
-                  <p className="text-step mt-3" style={{textAlign: 'center', fontFamily: "Saira"}}>Escribe nuevamente la nueva clave</p>
-                  <input
-                  className="form-control transparent-input1"
-                  style={{fontFamily: "Saira"}}
-                  type="text"
-                  name="pass2"
-                  />
-                 <button type="button" onClick={forgotPass} className="btn btn-success btns">Recuperar</button>
-                  <div className="error_g" style={{fontFamily: "Saira"}}>{error_v}</div>
+                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Tu contraseña se ha restablecido correctamente!</p>
+                <button type="button" className=" btn-success btns " onClick={()=>{ window.location.href='/login' }} style={{fontFamily: "Saira"}}>Acceder</button>
+
                 </div>
               </div>
              

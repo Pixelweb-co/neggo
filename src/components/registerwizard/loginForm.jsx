@@ -28,7 +28,7 @@ const Wizard = props => {
 
       var form = new FormData();
 
-      form.append('user',$('#step-1 input').val())
+      form.append('email',$('#step-1 input').val())
       form.append('password',$('#step-2 input').val())
 
       axios.defaults.baseURL = process.env.REACT_APP_API_URL
@@ -37,18 +37,9 @@ const Wizard = props => {
       .post('/api/auth/login', form)
       .then((response) => {
      
-        if(response.data.user_data){
-
-        // if (response.data.user_data.approved === '0') {
-        //   setAuthError([`Your account hasn't been approved.`])
-        // } else {
-        //   AuthManager.setToken(response.headers, response.data.user_data)
-        //   history.push('/dashboard/')
-        // }
-          
-
+        if(response.data.result=='success'){
         AuthManager.setToken(response.headers, response.data.user_data)
-        history.push('/dashboard/')
+        history.push('/')
 
       }else{
         setAuthError([response.data.message])
@@ -213,14 +204,14 @@ const _back_step = () =>{
               <div className="col-xs-12 col-sm-12  form-questions col-md-4 ">
                 <div className="row">
                 <h5 className="text-step" style={{color: 'white', textAlign: 'center', fontFamily: "Saira"}} >Bienvenido de nuevo</h5>
-                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Usuario</p>
+                <p className="text-step" style={{textAlign: 'center', fontFamily: "Saira"}}>Email</p>
                 <input
                 className="form-control transparent-input1"
                 type="text"
                 />
                 </div>
                 <div className="separador">
-                <a href="http://localhost:3000/register" className="list-group-item list-group-item-action" style={{textAlign: 'center', color: 'white', fontFamily: "Saira"}}>Olvide mi usuario/contraseña</a>
+                <a href="/forgot_password" className="list-group-item list-group-item-action" style={{textAlign: 'center', color: 'white', fontFamily: "Saira"}}>Olvide mi usuario/contraseña</a>
                 </div>
                
                 
@@ -255,8 +246,20 @@ const _back_step = () =>{
                 <div className="separador">
                
                 </div>
+                
+                <div className="errors">
+                {authError && (
+                  <b>{authError}</b>
+
+                )}
+
+                </div>
+                
                 <button type="button" className=" btn-success btns " onClick={login} style={{fontFamily: "Saira"}}>Ingresar</button>
                 
+
+
+
               </div>
 
               <div className="col-md-4 none-xs none-xs">

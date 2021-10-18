@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Headerb from '../dashboard/header'
 import avatar from '../../assets/images/path6190avatarL.png';
-
+import AuthManager from '../../helpers/AuthManager'
+import { NavLink,useHistory } from "react-router-dom";
+import { useLocation } from 'react-router-dom'
 
 import { useMediaQuery } from 'react-responsive'
 
@@ -14,7 +16,9 @@ import {
 
 export default function AdminLayout(props) {
     const [visible, setVisible] = useState(false)
-    
+    let history = useHistory()
+    const location = useLocation();
+    console.log(location.pathname);
     const isDesktopOrLaptop = useMediaQuery({
       query: '(min-width: 1224px)'
     })
@@ -43,6 +47,13 @@ export default function AdminLayout(props) {
         setVisible(true)  
        } 
     }
+
+    const logout = () =>{
+
+      AuthManager.logout()
+      history.push('/login')
+  
+  }
 
     return (
         <div>
@@ -92,10 +103,18 @@ export default function AdminLayout(props) {
               <Icon name='user' />
               Mis datos
             </Menu.Item>
+
+            <Menu.Item as='a' href="#" onClick={()=>{logout()}}>
+              <Icon name='sig-out' />
+              Salir
+            </Menu.Item>
+
+
+            
           </Sidebar>
 
-          <Sidebar.Pusher>
-            <Segment basic>
+          <Sidebar.Pusher className={location.pathname == '/solicitud_credito' ? 'creditosBg':''}>
+            <Segment basic  >
               {props.children}
             </Segment>
           </Sidebar.Pusher>

@@ -40,7 +40,7 @@ export default () => {
   const onSubmit = (data) => {
 
 
-axios.defaults.baseURL = env.API_URL
+axios.defaults.baseURL = env.REACT_APP_API_URL
 
     axios
       .post('/api/auth/login', data)
@@ -54,7 +54,7 @@ axios.defaults.baseURL = env.API_URL
         //   AuthManager.setToken(response.headers, response.data.user_data)
         //   history.push('/dashboard/')
         // }
-          
+          alert(7)
 
         AuthManager.setToken(response.headers, response.data.user_data)
         history.push('/')

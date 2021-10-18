@@ -18,7 +18,9 @@ import RegisterPage from "../pages/RegisterPage";
 import ActivateAccountPage from "../pages/ActivateAccountPage";
 import ForgotPassPage from "../pages/ForgotPassPage";
 
-
+//creditos
+import CreditosPage from "../pages/CreditosPage";
+import SolicitudCreditoPage from "../pages/SolicitudCreditoPage";
 
 
 
@@ -45,6 +47,9 @@ export default function AppRouter() {
         <PublicRoute exact path="/register" component={RegisterPage} />
 
         <PrivateRoute exact path="/miprofile" component={ProfilePage}/>
+        <PrivateRoute exact path="/creditos" component={CreditosPage}/>
+        <PrivateRoute exact path="/solicitud_credito" component={SolicitudCreditoPage}/>
+        
 
        
         <Route path="/404" component={NotFoundPage} />
