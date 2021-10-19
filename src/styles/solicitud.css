@@ -1,17 +1,19 @@
 .creditosBg{
     background-color: #228CA5!important;
-    color:white!important
+    color:white!important;
+    font-family: "Saira"
 }
 
 .creditosBg h2, h3,h1{
     
-    color:white!important
+    color:white!important;
+    font-family: "Saira"
 }
 
 .form_container_c{
-    width: 60%;
+    width: 50%;
     margin-top: 10%;
-    margin-left: 10%;
+    margin-left: 15%;
     
 }
 
@@ -21,7 +23,8 @@
     background-color: #00A6B7!important;
     color:white!important;
     padding:0px!important;
-    padding-top: 2em;
+    padding-top: 15px!important;
+    position:relative
     
    
   
@@ -53,6 +56,9 @@
 
 .endf{
     background-color: #228CA5;
+    margin-bottom: 0px!important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .shadow{
@@ -60,4 +66,24 @@
 -moz-box-shadow: 12px 9px 4px -2px rgba(107,106,107,1);
 box-shadow: 12px 9px 4px -2px rgba(107,106,107,1);
 
+}
+
+
+.tarjeta_img{
+    position: absolute;
+    transform: rotate(-10deg);
+    top: -25px;
+    left: -18px;
+    z-index:999;
+    
+}
+
+.tarjeta_contanier{
+    position:relative;
+    height: 200px;
+}
+
+.vineta1{
+    position:absolute;
+    left:80%
 }

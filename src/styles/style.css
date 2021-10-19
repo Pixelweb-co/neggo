@@ -9763,87 +9763,7 @@ textarea.form-control {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
 
-    .bg_about{
-      background-image: url('../assets/images/about.jpg');
-    }
-
-    .mb061 {
-      font-size: 28px;
-    }
-
-    .background_s{
-      background-image: url('../assets/images/bg_3.jpg');
-    }
-
-    .background_i{
-      background-image: url('../assets/images/dept-1.jpg');
-    }
-
-    .background_ii{
-      background-image: url('../assets/images/dept-2.jpg');
-    }
-
-    .back_i{
-      background-image: url('../assets/images/dept-3.jpg');
-    }
-
-    .back_a{
-      background-image: url('../assets/images/dept-4.jpg');
-    }
-
     
-    .back_b{
-      background-image: url('../assets/images/dept-5.jpg');
-    }
-
-    .back_c{
-      background-image: url('../assets/images/doc-1.jpg');
-    }
-
-    .back_d{
-      background-image: url('../assets/images/doc-2.jpg');
-    }
-
-    .back_e{
-      background-image: url('../assets/images/doc-3.jpg');
-    }
-
-    .back_f{
-      background-image: url('../assets/images/doc-4.jpg');
-    }
-
-    .back_g{
-      background-image: url('../assets/images/person_1.jpg');
-    }
-
-    .back_h{
-      background-image: url('../assets/images/person_2.jpg');
-    }
-
-    .back_i{
-      background-image: url('../assets/images/person_3.jpg');
-    }
-
-    .back_j{
-      background-image: url('../assets/images/person_4.jpg');
-    }
-
-    .back_k{
-      background-image: url('../assets/images/person_1.jpg');
-    }
-
-    .back_l{
-      background-image: url('../assets/images/image_1.jpg');
-    }
-
-    .back_m{
-      background-image: url('../assets/images/image_2.jpg');
-    }
-
-    .back_n{
-      background-image: url('../assets/images/image_3.jpg');
-    }
-
     .col-md-3 {
       flex: 0 0 auto;
       width: 25% !important;
@@ -10757,4 +10677,8 @@ float: left;
     right: 0;
     opacity: 1;
     margin-top:-8%
+   }
+
+   .page-wrapper-app{
+     background-color:#004B72 
    }

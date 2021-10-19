@@ -32,6 +32,7 @@ const Wizard = props => {
       form.append('password',$('#step-2 input').val())
 
       axios.defaults.baseURL = process.env.REACT_APP_API_URL
+      alert(process.env.REACT_APP_API_URL)
 
     axios
       .post('/api/auth/login', form)
