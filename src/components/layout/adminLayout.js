@@ -14,6 +14,14 @@ import {
     Sidebar,
   } from 'semantic-ui-react';
 
+  import iconHome from '../../assets/images/icon_finanzas.png'
+  import iconCreditos from '../../assets/images/icon_creditos.png'
+  import iconProductos from '../../assets/images/icon_productos.png'
+  import iconSeguridad from '../../assets/images/icon_seguridad.png'
+  import iconConfig from '../../assets/images/icon_config.png'
+ 
+
+
 export default function AdminLayout(props) {
     const [visible, setVisible] = useState(false)
     let history = useHistory()
@@ -86,27 +94,27 @@ export default function AdminLayout(props) {
 
           </div>
           
-            <Menu.Item as='a' href="/">
-              <Icon name='home' />
-              
-              Inicio
-            </Menu.Item>
+            
             <Menu.Item as='a' href="/mis_finanzas">
-              <Icon name='money' />
-              Mis Finanzas
+              <img className='item_menu' src={iconHome}/>
+              <span>Mis Finanzas</span> 
             </Menu.Item>
             <Menu.Item as='a' href="/creditos">
-              <Icon name='money' />
-              Créditos
+            <img className='item_menu2' src={iconCreditos}/>
+              <span> Créditos</span>
+            </Menu.Item>
+            <Menu.Item as='a' href="/productos">
+            <img className='item_menu2' src={iconProductos}/>
+               <span>Productos</span>
             </Menu.Item>
             <Menu.Item as='a' href="/miprofile  ">
-              <Icon name='user' />
-              Mis datos
+            <img className='item_menu2' src={iconSeguridad}/>
+               <span>Seguridad</span>
             </Menu.Item>
 
             <Menu.Item as='a' href="#" onClick={()=>{logout()}}>
-              <Icon name='sig-out' />
-              Salir
+            <img className='item_menuConfig' src={iconConfig}/>
+               <span>Configuración</span>
             </Menu.Item>
 
 

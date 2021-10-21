@@ -80,14 +80,14 @@ function FormSolicitud() {
                                 <div className="form_inputs">
 
                                     <div className="form-group">
-                                        <label>Monto a solicitar</label>
-                                        <input className="form-control" type="number" name="monto" onKeyUp={(e)=>{calculate(e)}}/>
+                                        <label className="label_cred">Monto a solicitar</label>
+                                        <input className="form-control transparent-inputcredit" type="number" name="monto" onKeyUp={(e)=>{calculate(e)}}/>
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Tiempo de prestamo</label>
-                                       <select className="form-control">
-                                           <option value="">Seleccione un plazo</option>  
+                                        <label className="label_cred">Tiempo de prestamo</label>
+                                       <select className="form-control transparent-inputcredit">
+                                           <option value=""></option>  
                                            <option value="1">1 MES</option> 
                                            <option value="3">3 MESES</option>   
                                            <option value="6">6 MESES</option>   
@@ -145,7 +145,7 @@ function FormSolicitud() {
 
                          <button 
                          type="button" 
-                         className=" btn-success btns pull-right" 
+                         className=" btn-success btns1 pull-right" 
                          onClick={()=>{}} 
                          style={{fontFamily: "Saira"}}>Solicitar Credito</button>
               
