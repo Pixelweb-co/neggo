@@ -37,10 +37,6 @@
     
 }
 
-.creditosBg .card{
-  
-}
-
 .item_c > h3{
     margin-bottom: 0px;
 }
@@ -71,9 +67,8 @@ box-shadow: 12px 9px 4px -2px rgba(107,106,107,1);
 
 .tarjeta_img{
     position: absolute;
-    transform: rotate(-10deg);
-    top: -25px;
-    left: -18px;
+    top: -97px;
+    left: -79px;
     z-index:999;
     
 }
