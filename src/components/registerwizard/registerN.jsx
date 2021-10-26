@@ -51,7 +51,8 @@ const Wizard = props => {
         //   AuthManager.setToken(response.headers, response.data.user_data)
         //   history.push('/dashboard/')
         // }
-          
+       $("#step-7").attr("data-anim","hide-to--left").removeClass('alfrente');
+      $('#step-8').attr("data-anim","show-from--right").addClass('alfrente');   
 
         AuthManager.setToken(response.headers, response.data.user_data)
         history.push('/')
