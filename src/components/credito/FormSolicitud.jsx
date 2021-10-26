@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import TarjetaIcon from '../../assets/images/tarjeta.png'; 
-import Vineta1 from '../../assets/images/vineta1.png'; 
+import Vineta1 from '../../assets/images/vineta1.png';
+import Icon_arrow from '../../assets/images/icon_arrow.png' 
 import NumberFormat from "react-number-format";
 import axios from 'axios';
+import Modal from '../../components/common/modal'
 
 function FormSolicitud() {
     const [total, setTotal] = useState(0)
@@ -11,6 +13,7 @@ function FormSolicitud() {
     const [tecnologia_v,setTecValue]=useState(0)
     const [seguro, setSeguro]=useState(0)
     const [config_data,setConfigData]=useState(null)
+    const [modalShow, setModalShow] = React.useState(false);
 //calcular total
     const calculate = e => {    
         console.log(config_data)
@@ -65,6 +68,10 @@ function FormSolicitud() {
 
     return (
         <div className="container" >
+            <Modal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            />
                     <div className="row ">
                     <div className="form_container_c">
                         <div className="header_form" align="right"><h1>Solicitud de Crédito</h1></div>
@@ -84,10 +91,9 @@ function FormSolicitud() {
                                         <input className="form-control transparent-inputcredit" type="number" name="monto" onKeyUp={(e)=>{calculate(e)}}/>
                                     </div>
 
-                                    <div className="form-group">
+                                    <div className="form-group sl">
                                         <label className="label_cred">Tiempo de prestamo</label>
                                        <select className="form-control transparent-inputcredit">
-                                           <option value=""></option>  
                                            <option value="1">1 MES</option> 
                                            <option value="3">3 MESES</option>   
                                            <option value="6">6 MESES</option>   
@@ -95,7 +101,10 @@ function FormSolicitud() {
                                            <option value="18">18 MESES</option>  
                                            <option value="24">24 MESES</option>     
                                        </select>
+                                       <img src={Icon_arrow} className="iconarrow"/>
                                     </div>
+
+                                    
 
 
                                 </div>
@@ -146,7 +155,7 @@ function FormSolicitud() {
                          <button 
                          type="button" 
                          className=" btn-success btns1 pull-right" 
-                         onClick={()=>{}} 
+                         onClick={() => setModalShow(true)}
                          style={{fontFamily: "Saira"}}>Solicitar Credito</button>
               
                             </div>
