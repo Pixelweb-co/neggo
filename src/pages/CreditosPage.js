@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Dashboard from '../components/layout/adminLayout'
-import {Tabs, Tab}  from 'react-bootstrap';
+import {Tabs, Tab, ProgressBar }  from 'react-bootstrap';
+import iconCreditos from '../assets/images/tabCreditV.png';
 
 export default function DashboardPage(props) {
     const [key, setKey] = useState('vijentes');
@@ -17,7 +18,7 @@ export default function DashboardPage(props) {
 
                     <div className="row">
                     
-                    <div className="container">
+                    <div className="container-cr">
                     
                     <Tabs
       id="controlled-tab-example"
@@ -25,47 +26,106 @@ export default function DashboardPage(props) {
       onSelect={(k) => setKey(k)}
       className="mb-3"
     >
-      <Tab eventKey="vijentes" title="Vijentes">
+      <Tab eventKey="vijentes" title={<span><img className='tabimg' src={iconCreditos} />Créditos vigentes </span>}>
         
       <div className="row item-credito">
         <div className="col-md-1 item-c-1">
-        
         <h4>Carro</h4>
-        
         </div>
 
         <div className="col-md-1 item-c-2">
-        
+        <span className="vcredito-t">$000.000</span>
         
         </div>
 
         <div className="col-md-2 item-c-3">
-        
+        <span className="vcredito-t">Crédito N° 03540840</span>
         
         </div>
 
         <div className="col-md-2 item-c-4">
-        
+        <b>Progreso</b> <ProgressBar variant="warning" now={60} />
         
         </div>
 
         <div className="col-md-1 item-c-5">
-        
+        <button type="button" className="btn btn-success btn-cr">Pagar cuota</button>
         
         </div>
 
-        <div className="col-md-1 item-c-6">
-        
+        <div className="col-md-1 item-c-6 btncredits">
+        <button type="button" className="btn btn-cr">Ver mas <i class="fas fa-sort-down"></i></button>
         
         </div>
       
       </div>
 
+      <div className="row item-credito">
+        <div className="col-md-1 item-c-a">
+        <h4>Universidad</h4>
+        </div>
 
+        <div className="col-md-1 item-c-2">
+        <span className="vcredito-t">$000.000</span>
+        
+        </div>
 
+        <div className="col-md-2 item-c-3">
+        <span className="vcredito-t">Crédito N° 03540840</span>
+        
+        </div>
+
+        <div className="col-md-2 item-c-4">
+        <b>Progreso</b> <ProgressBar variant="success" now={40} />
+        
+        </div>
+
+        <div className="col-md-1 item-c-5">
+        <button type="button" className="btn btn-success btn-cr">Pagar cuota</button>
+        
+        </div>
+
+        <div className="col-md-1 item-c-6 btncredits">
+        <button type="button" className="btn btn-cr">Ver mas <i class="fas fa-sort-down"></i></button>
+        
+        </div>
+      
+      </div>
+
+      <div className="row item-credito">
+        <div className="col-md-1 item-c-b">
+        <h4>Celular</h4>
+        </div>
+
+        <div className="col-md-1 item-c-2">
+        <span className="vcredito-t">$000.000</span>
+        
+        </div>
+
+        <div className="col-md-2 item-c-3">
+        <span className="vcredito-t">Crédito N° 03540840</span>
+        
+        </div>
+
+        <div className="col-md-2 item-c-4">
+        <b>Progreso</b> <ProgressBar variant="success" now={0} />
+        
+        </div>
+
+        <div className="col-md-1 item-c-5">
+        <button type="button" className="btn btn-success btn-cr">Pagar cuota</button>
+        
+        </div>
+
+        <div className="col-md-1 item-c-6 btncredits">
+        <button type="button" className="btn btn-cr">Ver mas <i className="fas fa-sort-down"></i></button>
+        
+        </div>
+      
+      </div>
 
       </Tab>
-      <Tab eventKey="cancelados" title="Cancelados">
+      <Tab eventKey="cancelados" title={<span><img className='tabimg' src={iconCreditos} />Créditos cancelados </span>}>
        ss
       </Tab>
      

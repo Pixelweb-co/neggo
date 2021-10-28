@@ -10856,6 +10856,59 @@ border: 0px solid #000000;
     font-family: Saira;
   }
 
+  .btn-cr{
+    border: 0px;
+    margin-top: 10px;
+  }
+
+ 
+  .item-c-1{
+    background-color: #FFC700;
+    padding-top: 10px;
+  }
+
+  .item-c-a{
+    background-color: #72C67D;
+    padding-top: 10px;
+  }
+
+  .item-c-b{
+    background-color: #D74685;
+    padding-top: 10px;
+  }
+
+  .item-c-2, .item-c-3, .item-c-4, .item-c-5{
+    border-top: 2px solid #CCCCCC;
+    border-bottom: 2px solid #CCCCCC;
+    padding-top: 10px;
+  }
+
+  .item-c-6{
+    background-color: #cccccc;
+    border-top: 2px solid #CCCCCC;
+    border-bottom: 2px solid #CCCCCC;
+    padding-top: 10px;
+  }
+
+  .btncredits{
+    border: 0px;
+    text-align: center;
+  }
+
+  .container-cr{
+    margin-left: 20px;
+
+  }
+
+  .item-credito{
+    margin-bottom: 10px;
+    margin-left: 0px;
+  }
+
+  .tabimg{
+    height: 35px;
+  }
+
   
 
   
