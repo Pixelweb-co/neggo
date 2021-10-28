@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import closebt from '../../assets/img/close.png';
 
+
 const modal = (props) => {
         return (
             <Modal
@@ -66,6 +67,7 @@ const modal = (props) => {
               <Button className="btn-verde" onClick={props.onHide}>Guardar</Button>
             </Modal.Footer>
           </Modal>
+
         );
     
 }

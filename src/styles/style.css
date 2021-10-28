@@ -10775,7 +10775,12 @@ border: 0px solid #000000;
   position: absolute;
   left: 103%;
   top: -25px;
+}
 
+.modalcloseInvoice{
+  position: absolute;
+  left: 95%;
+  top: -65px;
 }
 
 .label_cred_m{
@@ -10812,7 +10817,43 @@ border: 0px solid #000000;
     background-color: #2CA05A !important;
     color: white !important;
     font-size: 16px;
-  
+  }
+
+  .btn-verdeinvoice{
+    border-radius: 11% !important;
+    border: 0px solid #2CA05A !important;
+    font-family: Saira !important;
+    background-color: #2CA05A !important;
+    color: white !important;
+    font-size: 16px;
+    position: absolute;
+    left: 0%;
+    top: -10%;
+  }
+
+
+  .modal-invoice{
+   
+    left: 65%;
+    color: black;
+    top: -15px;
+    background-color: transparent;
+    font-size: initial;
+    padding: 30px;
+    font-family: Saira;
+    
+  }
+
+  .img-responsive1{
+    width: 64%;
+    height: 65px;
+    border-radius: 50%;
+    margin-left: 37px;
+    
+  }
+
+  .columInvoice{
+    font-family: Saira;
   }
 
   
