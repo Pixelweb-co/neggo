@@ -10,6 +10,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import env from "react-dotenv";
 
+
 const Wizard = props => {
   const [stepActual,setStep] = useState(1)
   const [error_v, setError_v] = useState(null)
@@ -212,7 +213,7 @@ const _back_step = () =>{
                 />
                 </div>
                 <div className="separador">
-                <a href="/forgot_password" className="list-group-item list-group-item-action" style={{textAlign: 'center', color: 'white', fontFamily: "Saira"}}>Olvide mi usuario/contraseña</a>
+                <a href="/forgot_password" className="list-group-item list-group-item-action" style={{textAlign: 'center', color: 'white', fontFamily: "Saira", border: "0px"}}>Olvide mi usuario/contraseña</a>
                 </div>
                
                 

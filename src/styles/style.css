@@ -10520,7 +10520,16 @@ color:white;
 
 
 .text-step{
-  font-size:2em
+  font-size:2em;
+  
+}
+
+
+.text-step1{
+  font-size:2em;
+  margin: 1.7rem;
+  color: white;
+  font-family: Saira;
 }
 
 
@@ -10651,9 +10660,9 @@ float: left;
 
 .btns{
   margin-top: 10%;
-  border-radius: 10%;
+  border-radius: 6%;
   margin-right: 20%;
-  border: 6px solid #2CA05A;
+  border: 8px solid #2CA05A;
   font-family: Saira;
   margin-left: 40%;
   background-color: #2CA05A;
@@ -10714,10 +10723,11 @@ float: left;
   background-color:transparent !important;
   border:none !important;
   padding: 0px !important;
-  border-bottom: 1px solid #666666 !important;
-  width: 100%;
+  border-bottom: 2px solid #666666 !important;
+  width: 80%;
   height: 20px;
   font-weight: 200;
+  margin-bottom: 10px !important;
   }
 
   .item_menuConfig{
@@ -10727,6 +10737,82 @@ float: left;
     margin-right: 19px !important;
     margin-bottom: 37px !important;
     margin-top: 37px !important;
+  }
+
+  .sl{
+    position: relative;
+  }
+
+  .iconarrow{
+    position: absolute;
+    float: right;
+    top: 80%;
+    height: 10px;
+    left: 93%;
+}
+  
+.modal-header{
+  position: relative;
+  height: 50px;
+  border-bottom: 0px;
+  background-color: #ffffff !important;
+}
+
+.modal-title{
+ position: absolute;
+ left: 34%;
+ background-color: #228CA5;
+ color: white;
+ padding: 8px;
+ top: -10px;
+ border-radius: 3px 3px 3px 3px;
+-moz-border-radius: 3px 3px 3px 3px;
+-webkit-border-radius: 3px 3px 3px 3px;
+border: 0px solid #000000;
+}
+
+.modalclose{
+  position: absolute;
+  left: 103%;
+  top: -25px;
+
+}
+
+.label_cred_m{
+  font-family: Saira;
+  font-size: 20px;
+  color: #004B72;
+}
+
+.transparent-inputcreditt{
+  background-color:transparent !important;
+  border:none !important;
+  padding: 0px !important;
+  width: 80%;
+  height: 20px;
+  font-weight: 200;
+  margin-bottom: 10px !important;
+  font-size: 18px;
+  }
+
+  .modal-content{
+    background-color: transparent !important;
+    border: 0px;
+  }
+
+  .modal-body{
+    background-color: #ffffff !important;
+    padding-bottom: 0px !important;
+  }
+
+  .btn-verde{
+    border-radius: 11% !important;
+    border: 3px solid #2CA05A !important;
+    font-family: Saira !important;
+    background-color: #2CA05A !important;
+    color: white !important;
+    font-size: 16px;
+  
   }
 
   

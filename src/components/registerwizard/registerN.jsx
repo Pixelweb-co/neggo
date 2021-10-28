@@ -265,11 +265,11 @@ const _next_step = () =>{
 
               <div className="col-xs-12 form-questions">
                 <div className="row">
-                <p className="text-step" style={{ fontFamily: "Saira"}}>Estamos contentos que quieras hacer parte de nuestra familia Neggo y por ello, queremos conocerte mejor,
+                <p className="text-step1">Estamos contentos que quieras hacer parte de nuestra familia Neggo y por ello, queremos conocerte mejor,
                   a continuacion te vamos hacer algunas preguntas para que podamos reconocerte en nuestra plataforma...
                  </p>
-                <p className="text-step" style={{ fontFamily: "Saira"}}>Son tan solo 5 preguntas :D</p>    
-                <p className="text-step" style={{ fontFamily: "Saira"}}>Si en algún punto no quieres continuar con el proceso de registro puedes hacerlo con la tecla esc</p>
+                <p className="text-step1">Son tan solo 5 preguntas :D</p>    
+                <p className="text-step1">Si en algún punto no quieres continuar con el proceso de registro puedes hacerlo con la tecla esc</p>
                 </div>
 
               </div>
@@ -283,11 +283,11 @@ const _next_step = () =>{
           <div id="step-2" className="slider-step step sig" data-next-step="step-3" data-back-to="step-1">
             <div className="row step2">
               <div className="col-xs-12  ">
-              <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}} >Cúales son tus nombres?</h5>
+              <h5 className="text-step1">Cúales son tus nombres?</h5>
 
                 <input 
                 className="form-control transparent-input"
-                style={{fontFamily: "Saira"}}
+                style={{fontFamily: "Saira", margin: "1.7rem"}}
                 placeholder="Primer y segundo nombre"
                 type="text"
                 minLength= "20"
@@ -304,11 +304,11 @@ const _next_step = () =>{
 
             <div className="row step3">
               <div className="col-xs-12  ">
-              <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Cúales son tus apellidos?</h5>
+              <h5 className="text-step1">Cúales son tus apellidos?</h5>
 
                 <input
                 className="form-control transparent-input"
-                style={{fontFamily: "Saira"}}
+                style={{fontFamily: "Saira", margin: "1.7rem"}}
                 placeholder="Primer y segundo apellido"
                 type="text"
                 minLength= "20"
@@ -325,11 +325,11 @@ const _next_step = () =>{
 
             <div className="row step4">
               <div className="col-xs-12  ">
-              <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Cúal es tu correo electrónico?</h5>
+              <h5 className="text-step1">Cúal es tu correo electrónico?</h5>
 
                 <input
                 className="form-control transparent-input"
-                style={{fontFamily: "Saira"}}
+                style={{fontFamily: "Saira", margin: "1.7rem"}}
                 placeholder="Correo@correo.com.co"
                 type="text"
                 name= "email"
@@ -345,12 +345,12 @@ const _next_step = () =>{
 
           <div className="row step5">
             <div className="col-xs-12 ">
-            <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Un número de contacto?</h5>
-            <p className="text-step" style={{fontFamily: "Saira"}}>Ten en cuenta que este será tu usuario.</p>
+            <h5 className="text-step1">Un número de contacto?</h5>
+            <p className="text-step1">Ten en cuenta que este será tu usuario.</p>
 
                 <input
                 className="form-control transparent-input"
-                style={{fontFamily: "Saira"}}
+                style={{fontFamily: "Saira", margin: "1.7rem"}}
                 placeholder="+57 300 000 000"
                 type="text"
                 minLength= "10"
@@ -368,12 +368,12 @@ const _next_step = () =>{
 
          <div className="row step6">
            <div className="col-xs-12 ">
-           <h5 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Escribe tu clave de acceso</h5>
-           <p className="text-step" style={{fontFamily: "Saira"}}>4 digitos numéricos</p>
+           <h5 className="text-step1">Escribe tu clave de acceso</h5>
+           <p className="text-step1">4 digitos numéricos</p>
 
                <input
                className="form-control transparent-input"
-               style={{fontFamily: "Saira"}}
+               style={{fontFamily: "Saira", margin: "1.7rem"}}
                placeholder="####"
                type="text"
                minLength= "4"
@@ -391,10 +391,10 @@ const _next_step = () =>{
 
          <div className="row step7">
            <div className="col-xs-12 ">
-           <h3 className="text-step" style={{color: 'white', fontFamily: "Saira"}}>Genial!!</h3>
+           <h3 className="text-step1" >Genial!!</h3>
 
      
-           <p className="text-step" style={{fontFamily: "Saira"}}>
+           <p className="text-step1">
             Para terminar, acepta nuestras condiciones de servicio y privacidad
           </p>
      
