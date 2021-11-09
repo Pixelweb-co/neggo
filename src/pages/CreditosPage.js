@@ -12,7 +12,7 @@ export default function DashboardPage(props) {
             <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-6"><h2>Créditos</h2></div>
-                        <div className="col-md-6"><button className="btn btn-primary" onClick={()=>{window.location.href="/solicitud_credito"}}>Solicitar Crédito</button></div>
+                        <div className="col-md-6"><button className="btnn btn-primary"  onClick={()=>{window.location.href="/solicitud_credito"}}>Solicitar Crédito</button></div>
 
                     </div>
 
@@ -54,7 +54,7 @@ export default function DashboardPage(props) {
         </div>
 
         <div className="col-md-1 item-c-6 btncredits">
-        <button type="button" className="btn btn-cr">Ver mas <i class="fas fa-sort-down"></i></button>
+        <button type="button" className="btn btn-crr">Ver mas <i class="fas fa-sort-down"></i></button>
         
         </div>
       
@@ -86,7 +86,7 @@ export default function DashboardPage(props) {
         </div>
 
         <div className="col-md-1 item-c-6 btncredits">
-        <button type="button" className="btn btn-cr">Ver mas <i class="fas fa-sort-down"></i></button>
+        <button type="button" className="btn btn-crr">Ver mas <i class="fas fa-sort-down"></i></button>
         
         </div>
       
@@ -118,7 +118,7 @@ export default function DashboardPage(props) {
         </div>
 
         <div className="col-md-1 item-c-6 btncredits">
-        <button type="button" className="btn btn-cr">Ver mas <i className="fas fa-sort-down"></i></button>
+        <button type="button" className="btn btn-crr">Ver mas <i className="fas fa-sort-down"></i></button>
         
         </div>
       
@@ -126,7 +126,89 @@ export default function DashboardPage(props) {
 
       </Tab>
       <Tab eventKey="cancelados" title={<span><img className='tabimg' src={iconCreditos} />Créditos cancelados </span>}>
-       ss
+      <div className="row item-credito">
+        <div className="col-md-2 item-c-aa">
+        <h4>Crédito N° #######</h4>
+        </div>
+
+
+        <div className="col-md-2 item-c-3">
+        
+        
+        </div>
+
+        <div className="col-md-2 item-c-4">
+        <span className="vcredito-t">$000.000</span>
+        
+        </div>
+
+        <div className="col-md-1 item-c-5">
+        <button type="button" className="btn btn-success btn-cr">Generar paz y salvo</button>
+        
+        </div>
+
+        <div className="col-md-1 item-c-6 btncredits">
+        <button type="button" className="btn btn-crr">Ver mas <i class="fas fa-sort-down"></i></button>
+        
+        </div>
+      
+      </div>
+
+      <div className="row item-credito">
+        <div className="col-md-2 item-c-aa">
+        <h4>Crédito N° #######</h4>
+        </div>
+
+
+        <div className="col-md-2 item-c-3">
+        
+        
+        </div>
+
+        <div className="col-md-2 item-c-4">
+        <span className="vcredito-t">$000.000</span>
+        
+        </div>
+
+        <div className="col-md-1 item-c-5">
+        <button type="button" className="btn btn-success btn-cr">Generar paz y salvo</button>
+        
+        </div>
+
+        <div className="col-md-1 item-c-6 btncredits">
+        <button type="button" className="btn btn-crr">Ver mas <i class="fas fa-sort-down"></i></button>
+        
+        </div>
+      
+      </div>
+
+      <div className="row item-credito">
+        <div className="col-md-2 item-c-aa">
+        <h4>Crédito N° #######</h4>
+        </div>
+
+
+        <div className="col-md-2 item-c-3">
+        
+        
+        </div>
+
+        <div className="col-md-2 item-c-4">
+        <span className="vcredito-t">$000.000</span>
+        
+        </div>
+
+        <div className="col-md-1 item-c-5">
+        <button type="button" className="btn btn-success btn-cr">Generar paz y salvo</button>
+        
+        </div>
+
+        <div className="col-md-1 item-c-6 btncredits">
+        <button type="button" className="btn btn-crr">Ver mas <i class="fas fa-sort-down"></i></button>
+        
+        </div>
+      
+      </div>
       </Tab>
      
     </Tabs>

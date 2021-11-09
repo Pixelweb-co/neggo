@@ -207,7 +207,7 @@ window.env = {
   "npm_package_devDependencies_html_webpack_cdn_plugin": "^0.2.0",
   "npm_package_eslintConfig_extends_0": "react-app",
   "npm_package_eslintConfig_extends_1": "react-app/jest",
-  "npm_package_gitHead": "94f6454cf4a63c7d01e8ebe055fe344611c90a21",
+  "npm_package_gitHead": "09822d7fdab7df1204b0ffcacbb3233b38be026e",
   "npm_package_name": "Neggo",
   "npm_package_private": "true",
   "npm_package_readmeFilename": "README.md",
