@@ -14,6 +14,10 @@ function FormSolicitud() {
     const [seguro, setSeguro]=useState(0)
     const [config_data,setConfigData]=useState(null)
     const [modalShow, setModalShow] = React.useState(false);
+    const [tipo_creditos, SetTipoCreditos] = useState([]);
+    const [plazo,setPlazo]=useState('1')
+    const [tipo,setTipo]=useState('1')
+
 //calcular total
     const calculate = e => {    
         console.log(config_data)
@@ -27,6 +31,12 @@ function FormSolicitud() {
 
 
         }    
+
+    }
+
+    const prepararSolicitud = () =>{
+
+
 
     }
 
@@ -59,10 +69,39 @@ function FormSolicitud() {
 
 
     }
+
+     const get_tipos_credito = async() => {
+       
+       
+         axios.defaults.baseURL = process.env.REACT_APP_API_URL
+    
+        await axios
+        .get('/api/tipo_creditos')
+        .then((response) => {
+    
+          console.log("response t api")
+         
+       
+            SetTipoCreditos(response.data)   
+            
+      
+    
+    
+        })
+        .catch((error) => {
+          if (error.response) {
+           
+                return false
+          }
+        })
+
+
+    }
     
     
   useEffect(()=>{
     get_config_credito();
+    get_tipos_credito();
   
   },[]);
 
@@ -93,7 +132,7 @@ function FormSolicitud() {
 
                                     <div className="form-group sl">
                                         <label className="label_cred">Tiempo de prestamo</label>
-                                       <select className="form-control transparent-inputcredit">
+                                       <select className="form-control transparent-inputcredit" onChange={(e)=>{setPlazo(e.target.value)}}>
                                            <option value="1">1 MES</option> 
                                            <option value="3">3 MESES</option>   
                                            <option value="6">6 MESES</option>   
@@ -104,6 +143,19 @@ function FormSolicitud() {
                                        <img src={Icon_arrow} className="iconarrow"/>
                                     </div>
 
+                                     <div className="form-group sl">
+                                        <label className="label_cred">Tipo de crédito</label>
+                                       <select className="form-control transparent-inputcredit" onChange={(e)=>{setTipo(e.target.value)}}>
+                                           <option value="">Seleccione</option>  
+                                           {tipo_creditos && tipo_creditos.map((item,index)=>{
+                                           
+                                           
+                                           return(<option value={item.id}>{item.nombre}</option>) 
+                                           
+                                           })} 
+                                       </select>
+                                       <img src={Icon_arrow} className="iconarrow"/>
+                                    </div>
                                     
 
 
@@ -155,7 +207,7 @@ function FormSolicitud() {
                          <button 
                          type="button" 
                          className=" btn-success btns1 pull-right" 
-                         onClick={() => setModalShow(true)}
+                         onClick={() => {prepararSolicitud(); setModalShow(true)}}
                          style={{fontFamily: "Saira"}}>Solicitar Credito</button>
               
                             </div>
