@@ -1,6 +1,6 @@
 window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
-  "API_URL": "https://healtymind.iwebsuite.com:3000/",
+  "API_URL": "https://neggo.com.co:3000/",
   "APPDATA": "C:\\Users\\admin\\AppData\\Roaming",
   "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
   "ChocolateyLastPathUpdate": "132494315548616158",
@@ -67,7 +67,7 @@ window.env = {
   "PROMPT": "$P$G",
   "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
   "PUBLIC": "C:\\Users\\Public",
-  "REACT_APP_API_URL": "http://localhost:3000",
+  "REACT_APP_API_URL": "http://neggo.com.co:3000",
   "SESSIONNAME": "Console",
   "SystemDrive": "C:",
   "SystemRoot": "C:\\Windows",

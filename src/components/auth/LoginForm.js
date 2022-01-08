@@ -40,7 +40,7 @@ export default () => {
   const onSubmit = (data) => {
 
 
-axios.defaults.baseURL = env.REACT_APP_API_URL
+axios.defaults.baseURL = process.env.REACT_APP_API_URL
 
     axios
       .post('/api/auth/login', data)

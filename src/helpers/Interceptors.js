@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { fetchProgress, fetchSuccess, fetchFailure } from '../reducers/index'
 import env from "react-dotenv";
-axios.defaults.baseURL = env.API_URL
+axios.defaults.baseURL = process.env.REACT_APP_API_URL
 
 class Interceptor {
   constructor(store) {

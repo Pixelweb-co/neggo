@@ -25,7 +25,7 @@ export default function AdminLayout(props) {
 
   function getUserData() {
 
-axios.defaults.baseURL = env.API_URL
+axios.defaults.baseURL = process.env.REACT_APP_API_URL
     AuthManager.hasToken()
     const userId = window.localStorage.getItem('userId')
     if (userId) {

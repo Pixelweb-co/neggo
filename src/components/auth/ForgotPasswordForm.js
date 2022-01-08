@@ -14,7 +14,7 @@ export default function() {
   const [showForm, setshowForm] = useState(false)
   const translate = useSelector((state) => state.translate)
 
-  axios.defaults.baseURL = env.API_URL
+  axios.defaults.baseURL = process.env.REACT_APP_API_URL
 
   const onSubmit = (data) => {
     data.redirect_url = `${window.location.origin}/reset-password`

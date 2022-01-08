@@ -35,7 +35,7 @@ export default (props) => {
 //console.log(data);
 //axios.defaults.baseURL = 'http://healtymind.iwebsuite.com:5000'
 //axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT
-axios.defaults.baseURL = env.API_URL
+axios.defaults.baseURL = process.env.REACT_APP_API_URL
     axios
       .post('/api/auth/register', formData)
       .then((response) => {
