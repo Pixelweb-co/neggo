@@ -34,8 +34,44 @@ function FormSolicitud() {
 
     }
 
-    const prepararSolicitud = () =>{
+    const prepararSolicitud = async () =>{
 
+            
+            setModalShow(false)
+
+        const solicitud_credito = {
+            cliente: window.localStorage.getItem('userId'),
+            monto:monto,
+            total:total,
+            iva:iva,
+            seguro:seguro,
+            tecnologia_v:tecnologia_v,
+            plazo:plazo,
+            tipo_creditos:tipo_creditos,
+            tipo:tipo
+        }
+
+        console.log("sol",solicitud_credito)
+
+        
+        axios.defaults.baseURL = process.env.REACT_APP_API_URL
+    
+        await axios
+        .post('/api/creditos', solicitud_credito)
+        .then((response) => {
+    
+          console.log("response api",response)
+         
+            
+    
+    
+        })
+        .catch((error) => {
+          if (error.response) {
+           
+                return false
+          }
+        })
 
 
     }
@@ -110,6 +146,7 @@ function FormSolicitud() {
             <Modal
             show={modalShow}
             onHide={() => setModalShow(false)}
+            onCreate={()=>{prepararSolicitud(true)}}
             />
                     <div className="row ">
                     <div className="form_container_c">
@@ -207,7 +244,7 @@ function FormSolicitud() {
                          <button 
                          type="button" 
                          className=" btn-success btns1 pull-right" 
-                         onClick={() => {prepararSolicitud(); setModalShow(true)}}
+                         onClick={() => {setModalShow(true)}}
                          style={{fontFamily: "Saira"}}>Solicitar Credito</button>
               
                             </div>

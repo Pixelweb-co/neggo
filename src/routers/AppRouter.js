@@ -21,6 +21,7 @@ import ForgotPassPage from "../pages/ForgotPassPage";
 //creditos
 import CreditosPage from "../pages/CreditosPage";
 import SolicitudCreditoPage from "../pages/SolicitudCreditoPage";
+import SolicitudesCreditoPage from "../pages/SolicitudesCreditoPage"; 
 
 
 
@@ -49,6 +50,7 @@ export default function AppRouter() {
         <PrivateRoute exact path="/miprofile" component={ProfilePage}/>
         <PrivateRoute exact path="/creditos" component={CreditosPage}/>
         <PrivateRoute exact path="/solicitud_credito" component={SolicitudCreditoPage}/>
+        <PrivateRoute exact path="/solicitudes_credito" component={SolicitudesCreditoPage}/>
         
 
        

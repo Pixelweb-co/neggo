@@ -103,6 +103,10 @@ export default function AdminLayout(props) {
             <img className='item_menu2' src={iconCreditos}/>
               <span> Créditos</span>
             </Menu.Item>
+            <Menu.Item as='a' href="/solicitudes_credito">
+            <img className='item_menu2' src={iconCreditos}/>
+              <span>Solicitudes</span>
+            </Menu.Item>
             <Menu.Item as='a' href="/productos">
             <img className='item_menu2' src={iconProductos}/>
                <span>Productos</span>
